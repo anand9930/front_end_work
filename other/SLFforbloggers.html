@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SLF</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:500"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .big-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 500px;
+        background: url("https://images.unsplash.com/photo-1536327192749-e94e51c9e1e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&width=750&q=108");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .intro-title {
+        width: 100%;
+        background-color: rgb(31, 81, 245);
+        color: white;
+        font-size: 17px;
+        font-family: Montserrat, sans-serif;
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+      .intro-title div {
+        padding: 20px 40px;
+      }
+      .requirement-block {
+        width: 100%;
+        background-color: black;
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        font-family: Montserrat, sans-serif;
+      }
+      .requirement-block div {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .list-block {
+        padding: 0px 50px;
+      }
+      .list-block li {
+        padding: 4px 0px;
+        font-size: 15px;
+        font-family: Montserrat, sans-serif;
+      }
+      .below-requiremet-block {
+        padding: 40px 10px;
+        font-family: Montserrat, sans-serif;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        background-color: black;
+        color: white;
+      }
+      .form-wrapper {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+      .form-wrapper form {
+        margin-top: 70px;
+        width: 900px;
+      }
+      .above-form-block {
+        margin: 25px 0px;
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+        font-size: 23px;
+      }
+      .row-block {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 20px 0px;
+        width: 100%;
+      }
+      .row-block div label {
+        font-family: Montserrat, sans-serif;
+        font-size: 18px;
+      }
+      .row-block div input {
+        font-size: 19px;
+        outline: none;
+        width: 290px;
+        padding: 10px;
+        border: 2.5px solid black;
+      }
+      .row-block div {
+        display: flex;
+        flex-direction: column;
+      }
+      .above-submit-block {
+        margin: 25px 0px;
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+        font-size: 17px;
+      }
+      .above-submit-block a {
+        color: rgb(31, 81, 245);
+        text-decoration: none;
+      }
+      #submit-button {
+        cursor: pointer;
+        margin: 25px 0px;
+        border: 3px solid black;
+        background-color: black;
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        color: white;
+        padding: 15px 40px;
+        transition: 160ms all ease-in;
+      }
+      #submit-button:hover {
+        background-color: white;
+        color: black;
+      }
+      #mce-EMAIL {
+        font-size: 19px;
+        outline: none;
+        width: 290px;
+        padding: 10px;
+        border: 2.5px solid black;
+      }
+      @media (max-width: 480px) {
+        .requirement-block {
+          width: 100%;
+          background-color: black;
+          color: white;
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-template-columns: 1fr;
+          font-family: Montserrat, sans-serif;
+        }
+        .requirement-block div {
+          padding-top: 20px;
+        }
+        .form-wrapper form {
+          margin-top: 70px;
+          width: 100%;
+        }
+        .row-block div input {
+          font-size: 17px;
+          outline: none;
+          width: 80%;
+          padding: 10px;
+          border: 2.5px solid black;
+        }
+        .row-block div label {
+          font-size: 14px;
+        }
+        #mce-EMAIL {
+          font-size: 17px;
+          outline: none;
+          width: 80%;
+          padding: 10px;
+          border: 2.5px solid black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="big-image"></div>
+      <div class="intro-title">
+        <div>
+          slaughterandfoxCampus is a community with more than 5000 university
+          influencers who are our brand ambassadors at their Universities and
+          also represent our brand lifestyle in their campus and social media
+          network. A lot of presents are waiting for you!
+        </div>
+      </div>
+      <div class="requirement-block">
+        <div>
+          <div class="block-title">WHAT DOES A REP DO?</div>
+          <ul class="list-block">
+            <li>Sharing the product from our brand on their Social Media.</li>
+            <li>Gaining expertise in the digital marketing world.</li>
+            <li>
+              Being part of exclusive and exciting co-branding actions with
+              other top brands.
+            </li>
+            <li>
+              Being part of events and University parties as brand ambassadors,
+              because, everybody loves partying in style.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-title">WHAT ARE WE LOOKING FOR?</div>
+          <ul class="list-block">
+            <li>That you feel passion for our brand and what we do.</li>
+            <li>
+              Having at least 1000 followers on Instagram. Get there, we will be
+              waiting for you.
+            </li>
+            <li>
+              Committed, proactive, creative in your aesthetics and social
+              media.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="block-title">WHAT PERKS DOES IT HAVE TO JOIN?</div>
+          <ul class="list-block">
+            <li>
+              Becoming an ambassador for slaughterandfox and get an exclusive
+              code.
+            </li>
+            <li>
+              Dozens of prizes like slaughterandfox items, plane or festival
+              tickets, iPhones...
+            </li>
+            <li>
+              Exclusive gifts and advantages of our collaborations with other
+              brands.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="below-requiremet-block">
+        Enroll in!<br />
+
+        #SLAUGHTERANDFOXCO #SLAUGHTERANDFOXREPS #SLAUGHTERANDFOXCAMPUS
+      </div>
+      <div class="form-wrapper">
+        <form
+          action="https://slaughterandfox.us14.list-manage.com/subscribe/post?u=9a65171725137823c3c8abd0c&amp;id=11f8952139"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          class="validate"
+        >
+          <div class="above-form-block">
+            REGISTER NOW
+          </div>
+          <div class="row-block">
+            <div>
+              <label for="">Name</label>
+              <input type="text" name="FNAME" id="mce-FNAME" />
+            </div>
+            <div>
+              <label for="">Last Name</label>
+              <input type="text" name="LNAME" class="" id="mce-LNAME" />
+            </div>
+          </div>
+          <div class="row-block">
+            <div>
+              <label for="">Email </label>
+              <input type="email" name="EMAIL" id="mce-EMAIL" />
+            </div>
+            <div>
+              <label for="">Instagram account</label>
+              <input type="text" name="MERGE3" id="MERGE3" />
+            </div>
+          </div>
+          <div class="row-block">
+            <div>
+              <label for="">followers</label>
+              <input type="number" name="MERGE4" id="MERGE4" />
+            </div>
+            <div>
+              <label for="">University</label>
+              <input type="text" name="MERGE5" id="MERGE5" />
+            </div>
+          </div>
+          <div class="above-submit-block">
+            <input type="checkbox" name="" id="" />
+            I have read and accept SLAUGHTERANDFOX
+            <a href="https://www.slaughterandfox.com/pages/privacy-statement"
+              >Privacy Policy</a
+            >
+            and the
+
+            <a href="https://www.slaughterandfox.com/pages/terms-of-service">
+              Term and conditions</a
+            >
+          </div>
+          <div class="row-block">
+            <button type="submit" id="submit-button">
+              JOIN THE REVOLUTION
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>intern_project</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: rgb(255, 255, 255);
+        padding: 0px;
+        margin: 0px;
+        font-family: Montserrat, sans-serif;
+      }
+      .container {
+        background-color: rgb(255, 255, 255);
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+      }
+      #header-apply {
+        display: flex;
+        flex-direction: row;
+        font-family: "Roboto", sans-serif;
+        height: 60px;
+        background-color: rgb(250, 255, 187);
+        align-items: center;
+        transition: 240ms all ease;
+      }
+      .apply-text {
+        padding: 5px 40px;
+        flex: 4;
+      }
+      .apply-button {
+        margin-right: 0px;
+        flex: 1;
+      }
+      .apply-button > a {
+        padding: 7px 15px;
+        font-family: "Roboto", sans-serif;
+        background-color: #ffffff;
+        border: 2px solid black;
+        cursor: pointer;
+        text-decoration: none;
+        color: #000000;
+      }
+
+      #cross {
+        color: black;
+        cursor: pointer;
+        padding: 0px 10px;
+      }
+      .header {
+        padding: 0px;
+        margin: 0px;
+        background-color: rgb(253, 253, 253);
+        width: 100%;
+        height: 9vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .header > .logo {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+      }
+      .logo h3 a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+      }
+
+      .header > .search-bar {
+        flex: 3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .search-bar > input {
+        width: 80%;
+        height: 30px;
+        outline: none;
+        background-color: rgb(246, 246, 246);
+        border: none;
+      }
+      .header > .sign-in-button {
+        display: flex;
+        justify-content: flex-start;
+        flex: 1;
+      }
+      .sign-in-button > button {
+        font-family: Montserrat, sans-serif;
+        background-color: #fccd05;
+        border: 0px;
+        padding: 11px 20px;
+        outline: none;
+        border-radius: 3px;
+        color: rgb(66, 66, 66);
+        box-sizing: border-box;
+        transition: 200ms all ease-in;
+        cursor: pointer;
+      }
+      .sign-in-button > button:hover {
+        background-color: #ffd727;
+      }
+      .request-demo {
+        background: linear-gradient(
+            rgb(119, 0, 255, 0.85),
+            rgb(119, 0, 255, 0.85)
+          ),
+          url("https://images.unsplash.com/photo-1507860731853-84f12e4c036b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .intro-text {
+        color: white;
+        font-family: Montserrat, sans-serif;
+        font-size: 68px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .intro-text > .bigtext {
+        margin: 20px 50px;
+      }
+      .intro-text ul {
+        list-style-type: none;
+        padding: 0px;
+        font-family: Montserrat, sans-serif;
+        font-size: 22px;
+      }
+      .intro-text ul li {
+        padding: 10px 2px;
+      }
+      .demo-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 20%;
+      }
+      .demo-button button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #fccd05;
+        font-size: 20px;
+        border-radius: 2px;
+        font-family: Montserrat, sans-serif;
+        outline: none;
+        box-sizing: border-box;
+        transition: 200ms all ease-in;
+        cursor: pointer;
+      }
+      .demo-button button a {
+        text-decoration: none;
+        color: rgb(66, 66, 66);
+      }
+
+      .demo-button > button:hover {
+        background-color: #ffd727;
+      }
+      .card-show {
+        font-family: Montserrat, sans-serif;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 16px;
+        overflow: hidden;
+        margin: 20px 0px;
+      }
+      .card-show > div {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+      }
+      .card-title {
+        font-family: Montserrat, sans-serif;
+        background-color: rgb(255, 255, 255);
+        padding: 10px 40px;
+        color: rgb(27, 15, 66);
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+      }
+      .card-body {
+        padding: 18px;
+        color: rgb(93, 93, 93);
+      }
+      .country-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(119, 0, 255);
+        width: 100%;
+        padding: 40px 10px;
+        margin: 30px 0px;
+        font-size: 38px;
+        color: #ffffff;
+        box-sizing: border-box;
+      }
+      .country-blocks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 30px 30px;
+        margin: 20px;
+      }
+      .country-blocks div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .cimage {
+        width: 80%;
+        background-color: rgb(0, 17, 255);
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        position: relative;
+        border: 8px solid #ffffff;
+        overflow: hidden;
+        margin: 10px;
+      }
+      .image1 {
+        background: url("https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=330&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image2 {
+        background: url("https://images.unsplash.com/photo-1468183654773-77e2f0bb6bf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image3 {
+        background: url("https://images.unsplash.com/photo-1534313314376-a72289b6181e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image4 {
+        background: url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image5 {
+        background: url("https://images.unsplash.com/photo-1524613032530-449a5d94c285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image6 {
+        background: url("https://images.unsplash.com/photo-1549048144-899e8172ca6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .image-title {
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 1px;
+        background-color: rgb(20, 20, 20);
+        padding: 10px 10px 29px 10px;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+      }
+
+      .fas {
+        color: rgb(119, 0, 255);
+        margin: 0px auto;
+      }
+      #helper-title {
+        background-color: #ffffff;
+        color: rgb(119, 0, 255);
+      }
+      .helper-blocks {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 20px 0px 5px 0px;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+      }
+      .helper-blocks > div {
+        display: flex;
+        flex-direction: column;
+      }
+      .helper-body {
+        color: #575757;
+        padding: 30px;
+      }
+      .help-icons {
+        color: rgb(51, 51, 51);
+      }
+      .finder-block {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+      .finder-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .finder-image div {
+        background: url("https://images.unsplash.com/photo-1515598379512-b60132823a9d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+        width: 80%;
+        height: 80%;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .finder-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .finder-title {
+        font-size: 29px;
+        padding: 17px 0px;
+        color: #7700ff;
+      }
+      .finder-text {
+        font-size: 18px;
+        padding: 16px 13px;
+        color: rgb(54, 54, 54);
+        font-family: "Roboto", sans-serif;
+      }
+      .finder-intro {
+        font-size: 17px;
+        padding: 10px 0px;
+        color: rgb(54, 54, 54);
+        font-family: "Roboto", sans-serif;
+      }
+      .finder-button {
+        padding: 40px;
+      }
+      .finder-button a {
+        text-decoration: none;
+        padding: 17px 10px;
+        background-color: #fccd05;
+        border-radius: 3px;
+        color: rgb(41, 41, 41);
+      }
+      .buyer-seller-section {
+        display: grid;
+        margin: 0px auto 35px;
+        width: 90%;
+        background-color: #7700ff;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        border-radius: 0px 0px 7px 7px;
+      }
+      .buyer-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .seller-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .sol-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #7700ff;
+        margin: 0px auto;
+        width: 90%;
+        border-radius: 7px 7px 0px 0px;
+      }
+      .sol-title div {
+        padding: 17px 10px;
+        color: rgb(240, 240, 240);
+        font-size: 26px;
+      }
+      .sol-text {
+        padding: 45px 80px;
+        font-size: 17px;
+        color: rgb(240, 240, 240);
+        font-family: "Roboto", sans-serif;
+      }
+      .sol-button {
+        padding: 35px 0px;
+      }
+      .sol-button a {
+        text-decoration: none;
+        color: rgb(41, 41, 41);
+        border: 3px solid rgb(41, 41, 41);
+        padding: 10px 14px;
+        font-family: Montserrat, sans-serif;
+        transition: 200ms all ease-in-out;
+      }
+      .sol-button a:hover {
+        background-color: rgb(41, 41, 41);
+        color: white;
+      }
+
+      .big-footer {
+        background-color: rgb(15, 15, 15);
+        width: 100%;
+      }
+      .footer-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fccd05;
+        color: rgb(41, 41, 41);
+      }
+      .ftitle {
+        font-size: 26px;
+        padding: 40px 30px 30px 30px;
+      }
+      .fa-ship {
+        color: rgb(41, 41, 41);
+        padding-right: 20px;
+      }
+
+      .fbody {
+        font-size: 17px;
+        padding: 0px 10% 40px 10%;
+        font-family: "Roboto", sans-serif;
+      }
+      .footer-bottom {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-areas:
+          "a a b b"
+          "c d f f"
+          "g h f f"
+          "i j x y";
+
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        margin: 30px 15px;
+        background-color: rgb(15, 15, 15);
+        color: rgb(241, 241, 241);
+      }
+      .a {
+        grid-area: a;
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      .a span {
+        font-size: 29px;
+      }
+      .b {
+        grid-area: b;
+        padding: 10px 20px 10px 20px;
+      }
+      .c {
+        grid-area: c;
+      }
+      .d {
+        grid-area: d;
+      }
+      .x {
+        grid-area: x;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .x a {
+        text-decoration: none;
+        color: rgb(241, 241, 241);
+      }
+      .y a {
+        text-decoration: none;
+        color: rgb(241, 241, 241);
+      }
+      .y {
+        grid-area: y;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .f {
+        grid-area: f;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .f > div {
+        padding: 20px 20px 20px 20px;
+      }
+      .f a {
+        text-decoration: none;
+        color: rgb(241, 241, 241);
+      }
+      .g {
+        grid-area: g;
+      }
+      .h {
+        grid-area: h;
+      }
+      .i {
+        grid-area: i;
+      }
+      .j {
+        grid-area: j;
+      }
+      .c-name {
+        font-size: 13px;
+      }
+      /* small screen design */
+      @media (max-width: 480px) {
+        #header-apply {
+          font-size: 13.5px;
+          height: 90px;
+        }
+        #cross {
+          color: black;
+          cursor: pointer;
+          margin-top: 14px;
+          margin-left: 30px;
+        }
+        .header > .search-bar {
+          display: flex;
+          flex: 2;
+          justify-content: center;
+          width: 100%;
+        }
+        .sign-in-button > button {
+          padding: 7px 15px;
+          cursor: pointer;
+        }
+        .request-demo {
+          height: 95vh;
+          display: grid;
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: 1fr;
+        }
+        .intro-text {
+          font-size: 38px;
+        }
+        .intro-text > .bigtext {
+          margin: 44px 30px 30px 30px;
+        }
+        .intro-text ul li {
+          padding: 10px 10px;
+          font-size: 17px;
+        }
+        .card-show {
+          display: grid;
+          grid-template-rows: repeat(3, 1fr);
+          grid-template-columns: 1fr;
+        }
+        .country-title {
+          font-size: 18px;
+          margin: 30px 0px 10px 0px;
+        }
+        .country-blocks {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+        }
+        .cimage {
+          height: 115px;
+          width: 115px;
+        }
+        .image-title {
+          font-size: 10px;
+          padding: 5px 10px 18px 10px;
+        }
+        .helper-blocks {
+          display: grid;
+          grid-template-rows: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .helper-body {
+          color: #575757;
+          padding: 20px;
+        }
+        .finder-block {
+          width: 100%;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          grid-template-columns: 1fr;
+        }
+        .buyer-seller-section {
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          grid-template-rows: 1fr;
+        }
+        .sol-text {
+          padding: 25px 20px;
+          font-size: 17px;
+        }
+        .footer-bottom {
+          display: grid;
+          margin: 30px 15px;
+          grid-gap: 5px;
+          grid-template-areas:
+            "a a f f"
+            "b b f f"
+            "c c x x"
+            "d d y y"
+            "g g h h"
+            "i i j j";
+
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        .b {
+          grid-area: b;
+          padding: 20px 0px;
+        }
+        .y {
+          grid-area: x;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+    </style>
+    <script>
+      function myfunc() {
+        document.getElementById("header-apply").style.height = "0px";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="header-apply">
+        <div class="apply-text">
+          Program Manager Global Leads - Recruitment Program. Currently hiring
+        </div>
+        <div class="apply-button">
+          <a href="finder.html">Apply</a>
+          <i class="fas fa-times" id="cross" onclick="myfunc()"></i>
+        </div>
+      </div>
+      <div class="header">
+        <div class="logo">
+          <h3><a href="sourcak-home-r1.html">Sourcak</a></h3>
+        </div>
+        <div class="search-bar"><input type="text" name="" id="" /></div>
+        <div class="sign-in-button"><button>Sign in</button></div>
+      </div>
+      <div class="request-demo">
+        <div class="intro-text">
+          <div class="bigtext">Find pre-vetted manufactures & Consultants</div>
+          <ul>
+            <li>-Only 5% manufactures gets accepted</li>
+            <li>-Only top 1% of industry expert consultants</li>
+            <li>-Dedicated account managers</li>
+            <li>-Free obligation free Quotes and proposals</li>
+          </ul>
+        </div>
+        <div class="demo-button">
+          <button><a href="request-demo.html">Request Demo</a></button>
+        </div>
+      </div>
+      <div class="card-show">
+        <div>
+          <i class="fas fa-seedling fa-2x"></i>
+          <div class="card-title">Product Development</div>
+          <div class="card-body">
+            We help you make the best desicions by connecting you to the
+            industry expert who consults in that field for you to design
+            anddevelop a project or set up a manufacturing facility.
+          </div>
+        </div>
+        <div>
+          <i class="fas fa-map-marked-alt fa-2x"></i>
+          <div class="card-title">
+            Product Sourcing
+          </div>
+          <div class="card-body">
+            Less than 5 out of 100 factories make it on sourak.You can connect
+            with verified high quality suppliers there by saving time and hassle
+            by doing business with veriied suppliers only.
+          </div>
+        </div>
+        <div>
+          <i class="fas fa-handshake fa-2x"></i>
+          <div class="card-title">Factory Setup</div>
+          <div class="card-body">
+            Our consultants are domain experts ith prior experts in seting up
+            factories.We begin by provideing you a custom made project
+            report,followed by recommending manufactures and finally by helping
+            in the installation process.
+          </div>
+        </div>
+      </div>
+      <div class="country-title">
+        Find a manufacture for popular destination
+      </div>
+      <div class="country-blocks">
+        <div>
+          <div class="image1 cimage">
+            <div class="image-title">
+              ITALY
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="image2 cimage">
+            <div class="image-title">
+              SPAIN
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="image3 cimage">
+            <div class="image-title">
+              GERMANY
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="image4 cimage">
+            <div class="image-title">
+              CHINA
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="image5 cimage">
+            <div class="image-title">
+              INDIA
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="image6 cimage">
+            <div class="image-title">
+              BANGLADESH
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="country-title" id="helper-title">
+        How can Sourak help me ?
+      </div>
+      <div class="helper-blocks">
+        <div>
+          <i class="fas fa-comment-dots fa-2x help-icons"></i>
+          <div class="helper-body">
+            What do you want to source develop and manufacture
+          </div>
+        </div>
+        <div>
+          <i class="fas fa-file-alt fa-2x help-icons"></i>
+          <div class="helper-body">
+            Get quotes from a pre verified factory or get connected to an expert
+          </div>
+        </div>
+        <div>
+          <i class="fas fa-truck fa-2x help-icons"></i>
+          <div class="helper-body">
+            Confirm orders sample request or start discussions with consultants
+          </div>
+        </div>
+        <div>
+          <i class="fas fa-check-circle fa-2x help-icons"></i>
+          <div class="helper-body">
+            Get reports of production process and final reports
+          </div>
+        </div>
+        <div>
+          <i class="fas fa-plane fa-2x help-icons"></i>
+          <div class="helper-body">
+            Shipment process air or ocean,consultants to develop a project or
+            setup factory
+          </div>
+        </div>
+      </div>
+      <div class="finder-block">
+        <div class="finder-image">
+          <div></div>
+        </div>
+        <div class="finder-content">
+          <div class="finder-title">Sourcak Finders</div>
+          <div class="finder-text">
+            Sourcak has a network of 1000s of finders across the world, who
+            share their network of pre-vetted buyer and suppliers. Our sourcing
+            agents are remote professionals with over 4-5 years of industry
+            experience.
+          </div>
+          <div class="finder-intro">
+            Find out more about the finders program.
+          </div>
+          <div class="finder-button"><a href="finder.html">Learn More</a></div>
+        </div>
+      </div>
+      <div class="sol-title"><div>Solutions</div></div>
+      <div class="buyer-seller-section">
+        <div class="buyer-section">
+          <div class="sol-text">
+            See how sourcak can help you procure from pre-vetted sellers and
+            arrange for pre shipment inspections.
+          </div>
+          <div class="sol-button"><a href="buyer.html">FOR BUYERS</a></div>
+        </div>
+        <div class="seller-section">
+          <div class="sol-text">
+            See how Sourcak can help you sell to serious pre-vetted sellers and
+            participate in tender.
+          </div>
+          <div class="sol-button"><a href="supplier.html">FOR SELLER</a></div>
+        </div>
+      </div>
+      <div class="big-footer">
+        <div class="footer-block">
+          <div class="ftitle">
+            <i class="fas fa-ship"></i>Sourcak partner factories process over $9
+            billion in inquiries annually.
+          </div>
+          <div class="fbody">
+            We work with industry experts,large startup founders ,EX Mckinesy &
+            Bain consultants,Engineering and business school students
+            representing top 1% of their class at ivy league school and its
+            equivalents,who are helped by oure freelance agents to verify
+            manufactures for us.
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="a">
+            <span>Sourcak</span>
+            <br />Simplifies the trade, product development<br />
+            and project set up experience.
+          </div>
+          <div class="b">
+            Questions <br />
+            info@sourcak.com
+          </div>
+          <div class="c c-name">
+            INDIA <br />6th floor, Commercial point office park, 79 Lenin Sarani
+            Kolkata, India
+          </div>
+          <div class="d c-name">
+            ITALY <br />
+            Via Puccini 170 50019 Sesto Fiorentino Fl Italy
+          </div>
+          <div class="x"><a href="">Terms of use</a></div>
+          <div class="y"><a href="">Privacy Policy</a></div>
+          <div class="f">
+            <div><a href="">ABOUT US</a></div>
+            <div><a href="">COMPANY</a></div>
+            <div><a href="">CAREERS</a></div>
+          </div>
+          <div class="g c-name">
+            SOUTH AFRICA<br />
+            Block A, Regus House, Wedgefield Business park, 17 Muswell Road
+            South, Bryanston 2191, South Africa
+          </div>
+          <div class="h c-name">
+            SPAIN <br />
+            Barbieri 26 Madrid 28004 spain
+          </div>
+          <div class="i c-name">
+            CHINA <br />
+            305A, Floor 3,Global Shoes Building,Houjie Town,Dongguan
+          </div>
+          <div class="j c-name">
+            LONDON <br />
+            71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(37, 37, 37);
+      }
+
+      .box {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 50px;
+      }
+
+      .box #thumbnail {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        -webkit-filter: blur(20px); /* Safari 6.0 - 9.0 */
+        filter: blur(20px);
+        opacity: 1;
+        transition: opacity 800ms ease-in-out;
+      }
+      .original {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .box2 {
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+      }
+      .box2 img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">
+        <img
+          id="thumbnail"
+          src="https://images.unsplash.com/photo-1569596082827-c5e8990496cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format"
+        />
+      </div>
+      <!-- <div class="box2">
+        <img
+          src="https://images.unsplash.com/photo-1556911820-1238441ed1a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9"
+        />
+      </div> -->
+    </div>
+  </body>
+  <script>
+    function myfun() {
+      box = document.getElementsByClassName("box")[0];
+      img = document.createElement("img");
+      img.classList.add("original");
+      img.src =
+        "https://images.unsplash.com/photo-1569596082827-c5e8990496cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format";
+      box.appendChild(img);
+      img.addEventListener("load", function() {
+        thumbnail = document.getElementById("thumbnail");
+        thumbnail.style.opacity = 0;
+        console.log("hello");
+      });
+    }
+
+    setTimeout(myfun, 1000);
+  </script>
+</html>

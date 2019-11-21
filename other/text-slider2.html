@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: #333;
+        height: 94vh;
+        position: relative;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+      }
+
+      .slider-wrapper {
+        width: 600px;
+        height: 300px;
+        overflow: hidden;
+        display: inline;
+      }
+
+      .inner-wrapper {
+        width: 500%;
+        height: 100%;
+        position: relative;
+        left: -100%;
+      }
+
+      .slide {
+        width: calc(100% / 5);
+        height: 100%;
+        float: left;
+        font-size: 100px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .button {
+        width: 30px;
+        height: 30px;
+        border-top: 2px solid black;
+        position: absolute;
+        cursor: pointer;
+      }
+
+      .prev {
+        border-left: 2px solid black;
+        transform: rotate(-45deg);
+      }
+
+      .next {
+        border-right: 2px solid black;
+        transform: rotate(45deg);
+      }
+    </style>
+    <script>
+      $(function() {
+        var inWrap = $(".inner-wrapper");
+
+        $(".prev").on("click", function() {
+          inWrap.animate({ left: "0%" }, 300, function() {
+            inWrap.css("left", "-100%");
+
+            $(".slide")
+              .first()
+              .before($(".slide").last());
+          });
+        });
+
+        $(".next").on("click", function() {
+          inWrap.animate({ left: "-200%" }, 300, function() {
+            inWrap.css("left", "-100%");
+
+            $(".slide")
+              .last()
+              .after($(".slide").first());
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button prev"></div>
+      <div class="slider-wrapper">
+        <div class="inner-wrapper">
+          <div class="slide" style="background: #E54B4B;">1</div>
+          <div class="slide" style="background: #61BFAD;">2</div>
+          <div class="slide" style="background: #F0CF61;">3</div>
+        </div>
+      </div>
+      <div class="button next"></div>
+    </div>
+  </body>
+</html>

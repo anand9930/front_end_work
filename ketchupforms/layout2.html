@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Layout2</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+
+      .animate-reveal {
+        font: bold 1.5em sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0;
+        -webkit-animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal
+          forwards;
+        -moz-animation: reveal 1s ease-in 1 normal forwards;
+        -o-animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+        animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+      }
+
+      .animate-first {
+        -webkit-animation-delay: 0;
+        -moz-animation-delay: 0;
+        -o-animation-delay: 0;
+        animation-delay: 0;
+      }
+
+      @-webkit-keyframes reveal {
+        0% {
+          opacity: 0;
+          -webkit-transform: translateY(100%);
+          -moz-transform: translateY(100%);
+          -o-transform: translateY(100%);
+          transform: translateY(100%);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+
+      @-moz-keyframes reveal {
+        0% {
+          opacity: 0;
+          -webkit-transform: translateY(100%);
+          -moz-transform: translateY(100%);
+          -o-transform: translateY(100%);
+          transform: translateY(100%);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+
+      @-o-keyframes reveal {
+        0% {
+          opacity: 0;
+          -webkit-transform: translateY(100%);
+          -moz-transform: translateY(100%);
+          -o-transform: translateY(100%);
+          transform: translateY(100%);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes reveal {
+        0% {
+          opacity: 0;
+          -webkit-transform: translateY(100%);
+          -moz-transform: translateY(100%);
+          -o-transform: translateY(100%);
+          transform: translateY(100%);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+          -moz-transform: translateY(0);
+          -o-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+      .wrapper .left {
+        position: fixed;
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        font-size: 40px;
+        font-family: "Poppins", sans-serif;
+        color: aliceblue;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 7%;
+        box-sizing: border-box;
+        background: url("https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .wrapper .right {
+        font-size: 34px;
+        color: black;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        background-color: rgb(233, 221, 255);
+        height: 2220px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="left">
+        <div class="animate-reveal animate-first">
+          The cat is a small carnivorous mammal.
+        </div>
+      </div>
+      <div></div>
+      <div class="right">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+        fugiat doloremque ex saepe rerum explicabo, quaerat quae deleniti sed
+        reprehenderit commodi exercitationem iste blanditiis vitae distinctio
+        inventore, culpa aspernatur dolorum!
+      </div>
+    </div>
+  </body>
+</html>

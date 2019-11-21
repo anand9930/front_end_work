@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Layout3</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+      }
+      .wrapper {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        padding: 100px 0px;
+        box-sizing: border-box;
+        background-color: rgb(189, 190, 248);
+      }
+
+      .form-wrapper {
+        width: 650px;
+        border-radius: 24px;
+        border: 2.1px solid rgb(138, 138, 138);
+        background-color: rgb(255, 255, 255);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 30px;
+      }
+      .form-intro {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+      }
+
+      .form-wrapper form {
+        padding: 30px 0px;
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-family: "Poppins", sans-serif;
+        font-size: 25px;
+      }
+      .input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0px;
+        box-sizing: border-box;
+      }
+      .form-wrapper form .input-wrapper input {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 10px;
+        font-size: 23px;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        background-color: rgb(238, 238, 238);
+      }
+      .form-wrapper form .input-wrapper input:focus {
+        background-color: rgb(223, 223, 223);
+      }
+      .form-wrapper form .input-wrapper input:focus ~ label {
+        color: #ec1313;
+      }
+      .form-wrapper form .input-wrapper label {
+        color: rgb(107, 107, 107);
+        font-size: 20px;
+      }
+      .form-wrapper form .check-wrapper {
+        padding: 10px 0px;
+        display: flex;
+        flex-direction: column;
+      }
+      .form-wrapper form .check-wrapper .check-question {
+        font-size: 23px;
+      }
+      .sbt-btn {
+        padding: 10px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .sbt-btn button {
+        cursor: pointer;
+        padding: 8px 20px;
+        font-family: "Poppins", sans-serif;
+        border: 0px solid rgb(0, 0, 0);
+        background-color: rgb(230, 202, 255);
+        border-radius: 7px;
+        color: rgb(93, 3, 195);
+        font-size: 19px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="form-wrapper">
+        <div class="form-intro">
+          established fact that a reader will be distracted by the readable
+          content of a page when looking at its layout. The point of using Lorem
+          Ipsum is that it has a more-or-less normal distribution of letters, as
+          opposed to using 'Content here, content here', making it look like
+          readable English. Many desktop publishing packages and web p
+        </div>
+        <form action="" method="post">
+          <div class="input-wrapper">
+            <label for="name">Name</label>
+            <input type="text" name="" id="name" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">E-mail</label>
+            <input type="email" name="" id="" />
+          </div>
+          <div class="check-wrapper">
+            <div class="check-question">wsara rw arw arard wd adadarw</div>
+            <label for="some">
+              <input type="checkbox" name="" id="some" />
+              hello
+            </label>
+            <label for="some2">
+              <input type="checkbox" name="" id="some2" />
+              hello
+            </label>
+
+            <label for="some3">
+              <input type="checkbox" name="" id="some3" />
+              hello
+            </label>
+            <label for="some4">
+              <input type="checkbox" name="" id="some4" />
+              hello
+            </label>
+          </div>
+          <div class="sbt-btn">
+            <button type="submit">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

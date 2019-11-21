@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Join</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+        background-color: rgb(255, 255, 255);
+      }
+      .container {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+      }
+      .join-us {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(
+            rgb(101, 52, 255, 0.8),
+            rgb(101, 52, 255, 0.8)
+          ),
+          url("https://cdn.pixabay.com/photo/2018/05/02/10/33/adult-3368246_960_720.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .join-text-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Montserrat, sans-serif;
+        color: rgb(255, 255, 255);
+        width: 100%;
+        height: 100%;
+      }
+      .join-text-block .big-text {
+        padding: 20px 0px;
+        font-size: 39px;
+      }
+      .join-text-block .small-text {
+        padding: 40px 0px;
+        font-size: 20px;
+      }
+      .svg-section {
+        margin-bottom: -4px;
+        margin-top: auto;
+      }
+      #Layer_1 {
+        margin: 0px;
+        padding: 0px;
+      }
+      .form-section {
+        width: 100%;
+        height: 700px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .join-form {
+        font-family: "Roboto", sans-serif;
+        width: 600px;
+        height: 500px;
+        display: grid;
+        grid-template-areas:
+          "cn cn cw cw"
+          "fn fn ln ln"
+          "em em em em"
+          "ph ph ph ph"
+          ". bt bt .";
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        background-color: rgb(255, 255, 255);
+      }
+      .cn {
+        grid-area: cn;
+      }
+      .cw {
+        grid-area: cw;
+      }
+      .fn {
+        grid-area: fn;
+      }
+      .ln {
+        grid-area: ln;
+      }
+      .em {
+        grid-area: em;
+      }
+      .ph {
+        grid-area: ph;
+      }
+      .bt {
+        grid-area: bt;
+        display: flex;
+        justify-content: center;
+      }
+      fieldset {
+        position: relative;
+        border: none;
+      }
+      .box {
+        border: 2px solid rgb(224, 224, 224);
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 14px 14px;
+        outline: none;
+        transition: 180ms border ease-in;
+        width: 100%;
+        font-size: 17px;
+      }
+
+      .box:focus {
+        border: 2px solid rgb(0, 38, 251);
+      }
+      .box:focus ~ .box-label,
+      .box:valid ~ .box-label {
+        position: absolute;
+        top: -2px;
+        transform: scale(0.8, 0.8);
+        left: 10px;
+        color: rgb(0, 38, 251);
+      }
+      .box-label {
+        position: absolute;
+        top: 23px;
+        left: 20px;
+        font-size: 15px;
+        transition: all 180ms ease;
+        background-color: rgb(255, 255, 255);
+        padding: 0px 5px;
+        color: rgb(107, 107, 107);
+      }
+      .bt button {
+        width: 130px;
+        padding: 12px 0px;
+        background-color: #255cd2;
+        border: none;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        color: white;
+        border-radius: 5px;
+        letter-spacing: 0.5px;
+        margin: 0px auto;
+        height: 45px;
+        background-color: #00dd81;
+      }
+      .bt button:hover {
+        background-color: #02c574;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="join-us">
+        <div class="join-text-block">
+          <div class="big-text">Join Sourcak exclusive network</div>
+          <div class="small-text">Reduce the Clutter & Source Faster</div>
+        </div>
+        <div class="svg-section">
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 1440 126"
+            style="enable-background:new 0 0 1440 126;"
+            xml:space="preserve"
+          >
+            <style type="text/css">
+              .st0 {
+                fill: #ffffff;
+              }
+            </style>
+            <title>Rectangle 3</title>
+            <desc>Created with Sketch.</desc>
+            <path
+              class="st0"
+              d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="form-section">
+        <form class="join-form" action="">
+          <div class="cn">
+            <fieldset>
+              <input
+                type="text"
+                name="Company name"
+                id="companyname"
+                class="box"
+                required
+              />
+              <label for="companyname" class="box-label">Company name</label>
+            </fieldset>
+          </div>
+          <div class="cw">
+            <fieldset>
+              <input
+                type="text"
+                name="Company website"
+                id="companywebsite"
+                class="box"
+                required
+              />
+              <label for="companywebsite" class="box-label"
+                >Company website</label
+              >
+            </fieldset>
+          </div>
+          <div class="fn">
+            <fieldset>
+              <input
+                type="text"
+                name="first name"
+                id="firstname"
+                class="box"
+                required
+              />
+              <label for="firstname" class="box-label">First name</label>
+            </fieldset>
+          </div>
+          <div class="ln">
+            <fieldset>
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                class="box"
+                required
+              />
+              <label for="lastname" class="box-label">Last name</label>
+            </fieldset>
+          </div>
+          <div class="em">
+            <fieldset>
+              <input
+                type="email"
+                name="businessemail"
+                id="businessemail"
+                class="box"
+                required
+              />
+              <label for="businessemail" class="box-label"
+                >Business Email</label
+              >
+            </fieldset>
+          </div>
+          <div class="ph">
+            <fieldset>
+              <input
+                type="number"
+                name="businessphone"
+                id="businessphone"
+                class="box"
+                required
+              />
+              <label for="businessphone" class="box-label"
+                >Business Phone</label
+              >
+            </fieldset>
+          </div>
+          <div class="bt">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

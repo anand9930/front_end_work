@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: auto;
+        flex: none;
+        flex-flow: column nowrap;
+        /* scroll-snap-type: y mandatory; */
+        overflow: auto;
+      }
+      .box {
+        scroll-snap-align: center;
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box" style="background-color: rgb(70, 73, 243)"></div>
+      <div class="box" style="background-color: rgb(226, 147, 43)"></div>
+      <div class="box" style="background-color: rgb(251, 104, 124)"></div>
+      <div class="box" style="background-color: rgb(4, 172, 93)"></div>
+      <div class="box" style="background-color: rgb(49, 49, 49)"></div>
+      <div class="box" style="background-color: rgb(159, 43, 226)"></div>
+    </div>
+  </body>
+
+  <script>
+    function smoothScroll(target, duration) {
+      // target = document.querySelector(target);
+      console.log(target);
+      targetPosition = target.getBoundingClientRect().top;
+      startPosition = window.pageYOffset;
+      distance = targetPosition; //- startPosition;
+      startTime = null;
+      function animation(currentTime) {
+        // console.log(currentTime);
+        if (startTime === null) {
+          startTime = currentTime;
+        }
+
+        timeElapsed = currentTime - startTime;
+        run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        console.log(run);
+        window.scrollTo(0, run);
+        // window.scrollTo({ top: distance, left: 0, behavior: "smooth" });
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+        // startTime = null;
+      }
+      //
+      function easeInOutCubic(t, b, c, d) {
+        console.log(t, b, c, d);
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t * t + b;
+        t -= 2;
+        return (c / 2) * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
+
+    box_object = document.getElementsByClassName("box")[1];
+
+    function myFunction() {
+      if (event.deltaY < 0) {
+        console.log("scrolling up");
+        // window.scrollTo(0, 900);
+        window.scrollTo(0, window.pageYOffset - 900);
+      } else if (event.deltaY > 0) {
+        console.log("scrolling down");
+
+        // window.scrollTo(0, 1900);
+        target = box_object;
+        //  targetPosition = target.getBoundingClientRect().top;
+
+        setTimeout(function() {
+          // window.scrollTo(0, targetPosition);
+          //  target.scrollIntoView({ block: "center" });
+          smoothScroll(target, 170);
+        }, 100);
+      }
+      box_object = box_object.nextElementSibling;
+
+      // window.removeEventListener("wheel", myFunction);
+
+      //  window.removeEventListener("scroll", myFunction);
+      // elmnt = document.getElementById("two");
+      // elmnt.scrollIntoView();
+    }
+
+    window.addEventListener("wheel", myFunction);
+  </script>
+</html>

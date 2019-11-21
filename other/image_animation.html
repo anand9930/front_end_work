@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="tooltip\catc-simple-hint-3.0.0-0-g5505827\catc-simple-hint-5505827\dist\simple-hint.css" rel="stylesheet" />
+    <title>image_animation</title>
+    <style>
+
+        body{
+            background-color: rgb(236, 236, 236);
+            margin:0px;
+            font-family: monospace;
+    
+            }
+    .container{
+        position: relative;
+        width:400px;
+        height: 600px;
+        margin: 80px auto; 
+        border-radius:18px ;
+    }
+    .girl_image{
+        position: absolute;
+        height:100%;
+        border-radius:18px ;  
+    }
+    .down_bar{
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        bottom:0px;
+        width:100%;
+        height: 0px;
+        transition:150ms all ease-in ;
+        border-bottom-right-radius:18px ;
+        border-bottom-left-radius:18px ;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        align-content: center;
+        display:flex ;   
+      
+    }
+    .girl_image:hover ~ .down_bar{
+        height: 55px;
+    }
+    .girl_image:hover ~ .down_bar>li{
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .down_bar:hover li{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .down_bar:hover{
+        height:55px;
+    }
+ 
+    .social_icons{
+        height:22px ; 
+    
+    }
+
+    li{   visibility: hidden;
+        opacity: 0;
+        margin:12px auto ;
+        transition: opacity 100ms, visibility 100ms;
+    }
+    
+div> ul{
+    background-color: blueviolet;
+}
+    
+    </style>
+</head>
+<body>
+    <div class="container hint-top-middle hint-anim" data-hint="The tooltip is animated">
+        <img src="images/car.jpg" class="girl_image">
+            <ul class="down_bar">
+                <li><img src="images/share.svg" class="social_icons"alt=""></li>
+                <li><img src="images/fb.svg" class="social_icons"alt=""></li>
+                <li><img src="images/twitter.svg" class="social_icons"alt=""></li>
+                <li><img src="images/insta.svg" class="social_icons"alt=""></li>
+            </ul>  
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form template 1</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:700"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+      }
+      .form-wrapper {
+        position: relative;
+        width: 390px;
+        height: 500px;
+        background-color: rgb(234, 233, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-shadow {
+        width: 98%;
+        height: 98%;
+        position: absolute;
+        top: 19px;
+        left: 17px;
+        background-color: rgb(103, 92, 255);
+        z-index: -99;
+      }
+      .form-wrapper form input {
+        width: 300px;
+        height: 45px;
+        outline: blue;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 20px;
+        border: 1px solid black;
+        font-family: monospace;
+      }
+      .i-title {
+        font-size: 18px;
+        padding: 5px 0px;
+      }
+      #submiter {
+        margin: 20px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      #submiter button {
+        font-family: monospace;
+        font-weight: 600;
+        font-size: 20px;
+        padding: 7px 20px;
+        box-sizing: border-box;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid black;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="form-wrapper">
+        <div class="form-shadow"></div>
+        <form action="">
+          <div class="i-title">Username</div>
+          <input type="text" name="" id="" />
+
+          <div class="i-title">E-mail</div>
+          <input type="email" name="" id="" />
+          <div class="i-title">New password</div>
+          <input type="password" name="" id="" />
+          <div class="i-title">Conform password</div>
+          <input type="password" name="" id="" />
+          <div id="submiter"><button type="submit">REGISTER</button></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS grid</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Niramit&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        overflow: hidden;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        width: 0px;
+      }
+      .wrapper {
+        position: relative;
+        width: 100%;
+        background-color: rgb(16, 16, 16);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+      .grid-wrapper {
+        margin: 50px 10px 0px;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 220px);
+        grid-gap: 25px;
+        grid-template-areas:
+          "a a b b"
+          "a a c d"
+          "e f f d"
+          "g g h i";
+      }
+      .overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .overlay button {
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 0px;
+        padding: 1px 24px;
+        border: 2.5px solid whitesmoke;
+        border-radius: 1.5px;
+        background-color: transparent;
+        font-size: 20px;
+        color: white;
+        font-family: "Niramit", sans-serif;
+        transition: border 200ms ease;
+      }
+      .overlay button:hover {
+        border: 2.5px solid rgb(62, 10, 250);
+      }
+      .grid-wrapper div {
+        background-color: rgb(0, 0, 0);
+      }
+
+      .a {
+        grid-area: a;
+        background: url("https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .b {
+        grid-area: b;
+        background: url("https://images.unsplash.com/photo-1567159572707-964d744246f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .c {
+        grid-area: c;
+        background: url("https://images.unsplash.com/photo-1567111089028-9abb29aa1102?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .d {
+        grid-area: d;
+        background: url(" https://images.unsplash.com/photo-1540544477454-a1c61262084d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .e {
+        grid-area: e;
+        background: url("https://images.unsplash.com/photo-1567046318559-b29fcd7bf471?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .f {
+        grid-area: f;
+        background: url("https://images.unsplash.com/photo-1567026340404-798c7e5c1f4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: 50% 30%;
+        background-repeat: no-repeat;
+      }
+
+      .g {
+        grid-area: g;
+        background: url("https://images.unsplash.com/photo-1566983664252-fa85b87538a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: 50% 30%;
+        background-repeat: no-repeat;
+      }
+      .h {
+        grid-area: h;
+        background: url("https://images.unsplash.com/photo-1567014033256-0cfcd4f84c15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: 50% 30%;
+        background-repeat: no-repeat;
+      }
+      .i {
+        grid-area: i;
+        background: url("https://images.unsplash.com/photo-1567171466295-4afa63d45416?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=600");
+        background-size: cover;
+        background-position: 50% 30%;
+        background-repeat: no-repeat;
+      }
+      .imgr {
+        transform: scale(0.45);
+      }
+      .text {
+        width: 80%;
+        padding: 100px 0px 10px;
+        color: white;
+        font-size: 19px;
+        font-family: "Niramit", sans-serif;
+      }
+
+      @media (max-width: 480px) {
+        .grid-wrapper {
+          display: grid;
+          width: 90%;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(5, 120px);
+          grid-template-areas:
+            "a a b b"
+            "a a d d"
+            "e f d d"
+            "g g i i"
+            "c h i i";
+          grid-gap: 10px;
+        }
+
+        .text {
+          width: 85%;
+
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="grid-wrapper">
+        <div class="a imgr"></div>
+        <div class="b imgr"></div>
+        <div class="c imgr"></div>
+        <div class="d imgr"></div>
+        <div class="e imgr"></div>
+        <div class="f imgr"></div>
+        <div class="g imgr"></div>
+        <div class="h imgr"></div>
+        <div class="i imgr"></div>
+      </div>
+
+      <div class="text">
+        a long established fact that a reader will be distracted by the readable
+        content of a page when looking at its layout. The point of using Lorem
+        Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like
+        readable English. Many desktop publishing packages and web page editors
+        now use Lorem Ipsumreatise on the theory of ethics, very popular during
+        the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+        amet..", comes from a line in section 1.10.32. The standard chunk of
+        Lorem Ipsum used since the 1500s is reproduced below for those
+        interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+        Malorum" by Cicero are also reproduced in their exact original form,
+        accompanied by English versions from the 1914 translation by H. Rackham.
+        Where can I get some
+      </div>
+      <div class="overlay">
+        <button onclick="anime()">explore</button>
+      </div>
+    </div>
+  </body>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+    integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk="
+    crossorigin="anonymous"
+  ></script>
+  <script src="app2.js"></script>
+</html>

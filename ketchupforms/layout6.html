@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:600|Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: auto;
+      }
+      .grid-wrapper {
+        display: flex;
+        width: 100%;
+        background-color: red;
+
+        /* display: grid;
+        grid-template-columns: 1fr 1.5fr; */
+      }
+      .grid-wrapper .left {
+        width: 40%;
+        height: 100vh;
+        /* display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center; */
+
+        background-color: blue;
+      }
+      .left-wrapper {
+        position: fixed;
+        /* top: 0px;
+        left: 0px; */
+        height: 100vh;
+        width: 40%;
+        font-size: 28px;
+        font-family: "Open Sans", sans-serif;
+        background: url("https://mixkit.imgix.net/art/213/213-original.png-1000h.png?auto=format&q=80&fm=jpg&h=700&q=80&dpr=1");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 0px 30px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+      }
+      .grid-wrapper .left .left-wrapper img {
+        margin-top: 50px;
+      }
+      .grid-wrapper .left .left-wrapper div {
+        max-width: 300px;
+        margin-top: 330px;
+        font-family: "Poppins", sans-serif;
+        color: rgb(255, 255, 255);
+      }
+      .grid-wrapper .left .left-wrapper div span {
+        background-color: rgb(103, 124, 247);
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 3px 10px;
+      }
+      .grid-wrapper .right {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(245, 245, 245);
+      }
+      .grid-wrapper .right .right-wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+      }
+      .grid-wrapper .right .right-wrapper .form-wrapper {
+        width: 70%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: space-evenly;
+      }
+      .form-wrapper input {
+        outline: none;
+        border: none;
+        width: 100%;
+        padding: 13px 0px;
+        box-sizing: border-box;
+        font-size: 23px;
+        font-family: "Open Sans", sans-serif;
+        background-color: transparent;
+      }
+      .form-wrapper input[type="email"] {
+        border: 1.7px solid rgb(129, 129, 129);
+        border-radius: 3px;
+        padding: 14px 9px;
+        font-size: 20px;
+      }
+
+      .form-wrapper input[type="email"]:focus {
+        border: 1.7px solid rgb(56, 56, 56);
+      }
+      .form-wrapper textarea {
+        width: 100%;
+        height: 210px;
+        resize: none;
+        font-size: 23px;
+        font-family: "Open Sans", sans-serif;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        outline: none;
+        border: 1.5px solid rgb(29, 29, 29);
+      }
+      .form-wrapper button {
+        margin: 25px 0px;
+        /*  float: right;*/
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        /*padding: 10px 23px;*/
+        padding: 16px 0px;
+        width: 100%;
+        background-color: rgb(24, 24, 24);
+        font-size: 18px;
+        color: rgb(251, 251, 251);
+        font-family: "Lato", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="grid-wrapper">
+        <div class="left">
+          <div class="left-wrapper">
+            <img
+              src="https://www.thinkpolls.com/static/poll_detail/images/thinkpolls-homepage.svg"
+              style="width:58px"
+            />
+            <div>
+              <span>ways to travel hello?</span>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="right-wrapper" id="one">
+            <div class="form-wrapper">
+              <form action="" method="post">
+                <input type="text" value="Name" />
+                <input type="email" name="" id="" />
+                <button type="button" onclick="smoothScroll('#two',330)">
+                  next
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="right-wrapper" id="two">
+            <div class="form-wrapper">
+              <form action="" method="post">
+                <input type="text" value="E-mail" />
+                <input type="email" name="" id="" />
+                <button type="button" onclick="smoothScroll('#three',330)">
+                  next
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="right-wrapper" id="three">
+            <div class="form-wrapper">
+              <form action="" method="post">
+                <input type="text" value="E-mail" />
+                <input type="email" name="" id="" />
+                <button type="button" onclick="smoothScroll('#two',330)">
+                  prev
+                </button>
+              </form>
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function smoothScroll(target, duration) {
+      target = document.querySelector(target);
+      targetPosition = target.getBoundingClientRect().top;
+      startPosition = window.pageYOffset;
+      distance = targetPosition; //- startPosition;
+      startTime = null;
+      function animation(currentTime) {
+        // console.log(currentTime);
+        if (startTime === null) {
+          startTime = currentTime;
+        }
+
+        timeElapsed = currentTime - startTime;
+        run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        console.log(run);
+        window.scrollTo(0, run);
+        // window.scrollTo({ top: distance, left: 0, behavior: "smooth" });
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+        // startTime = null;
+      }
+      //
+      function easeInOutCubic(t, b, c, d) {
+        // console.log(t, b, c, d);
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t * t + b;
+        t -= 2;
+        return (c / 2) * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    function myFunction() {
+      if (event.deltaY < 0) {
+        console.log("scrolling up");
+        window.scrollTo(0, 900);
+        window.scrollTo(0, window.pageYOffset - 900);
+      } else if (event.deltaY > 0) {
+        console.log("scrolling down");
+
+        console.log(window.pageYOffset);
+        window.scrollTo(0, 900);
+      }
+
+      window.removeEventListener("scroll", myFunction);
+
+      //  window.removeEventListener("scroll", myFunction);
+      // elmnt = document.getElementById("two");
+      // elmnt.scrollIntoView();
+    }
+
+    window.addEventListener("wheel", myFunction);
+  </script>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <title>split-screen</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+        font-family: monospace;
+      }
+      .split-title {
+        width: 100%;
+        height: 100vh;
+        background-color: azure;
+        font-size: 26px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .split-wrapper {
+        display: grid;
+        grid-template-areas:
+          "t1 i1"
+          "t1 i1"
+          "t1 i2"
+          "t2 i2"
+          "t2 i3"
+          "t2 i3";
+        grid-template-rows: 50vh 50vh 50vh 50vh 50vh 50vh;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .title1 {
+        grid-area: t1;
+        margin: 0 !important;
+        background-color: rgb(245, 245, 245);
+      }
+      .title2 {
+        grid-area: t2;
+        margin: 0 !important;
+        background-color: rgb(245, 245, 245);
+      }
+      .title-block {
+        width: 100%;
+        height: 420px;
+        background-color: rgb(245, 245, 245);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        font-family: Montserrat, sans-serif;
+      }
+      .tig2 {
+      }
+      .tig1 {
+      }
+      .scrollmagic-pin-spacer {
+        grid-area: t1;
+      }
+      .img1 {
+        background: url("https://images.unsplash.com/photo-1486746290722-483e8f1e44d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        grid-area: i1;
+      }
+      .img2 {
+        background: url("https://images.unsplash.com/photo-1458819714733-e5ab3d536722?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        grid-area: i2;
+      }
+      .img3 {
+        background: url("https://images.unsplash.com/photo-1548324215-f179404ae9ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        grid-area: i3;
+      }
+      .footer {
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        background-color: bisque;
+      }
+      .product-title {
+        font-size: 44px;
+      }
+      .title-block a {
+        text-decoration: none;
+        padding: 10px 15px;
+        border: 2px solid rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+        font-size: 24px;
+      }
+      .featured-block {
+        width: 100%;
+        height: 90px;
+        background-color: beige;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .fblock-title {
+        font-size: 30px;
+        font-family: Montserrat, sans-serif;
+      }
+      .fblock-divider {
+        margin-top: 10px;
+        width: 100px;
+        height: 5.5px;
+        background-color: blueviolet;
+      }
+
+      @media (max-width: 480px) {
+        .split-wrapper {
+          display: grid;
+          grid-template-areas:
+            "i1 i1"
+            "t1 t1"
+            "i2 i2"
+            "t2 t2"
+            "i3 i3";
+          grid-template-rows: 300px 200px 300px 200px 300px;
+          grid-template-columns: 1fr 1fr;
+        }
+        .product-title {
+          font-size: 34px;
+          padding-bottom: 10px;
+        }
+        .title-block {
+          height: 300px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .title-block a {
+          text-decoration: none;
+          padding: 10px 15px;
+          border: 2px solid rgb(0, 0, 0);
+          color: rgb(0, 0, 0);
+          font-size: 19px;
+        }
+        .title1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .title2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .img1 {
+          clip-path: polygon(50% 0%, 100% 0, 100% 93%, 50% 100%, 0 93%, 0 0);
+        }
+        .img2 {
+          clip-path: polygon(50% 0%, 100% 0, 100% 93%, 50% 100%, 0 93%, 0 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="split-title">Split screen effect</div>
+    <div class="split-wrapper">
+      <div class="title1 t1">
+        <div class="title-block tig1">
+          <div class="product-title">Random title1</div>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+      <div class="title2 t2">
+        <div class="title-block tig2">
+          <div class="product-title">Random title2</div>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+      <div class="img1 i1"></div>
+      <div class="img2 i2"></div>
+      <div class="img3 i3"></div>
+    </div>
+    <div class="footer">pretty cool huh</div>
+    <div class="featured-block">
+      <div class="fblock-title">FEATURED PRODUCTS</div>
+      <div class="fblock-divider"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.js"></script>
+    <script src="app2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BOX ARROW</title>
+    <style>
+        body{background-color: rgb(131, 20, 235);
+            font-family:monospace;
+            font-size:17px;
+            color:white;
+         }
+        .div_box{
+            position: relative;
+            display: grid;
+            width:500px;
+            border: 3px solid white;
+            padding: 40px;
+            box-sizing:border-box;
+            margin:100px auto;
+        
+        }
+        .div_box::after{
+            position: absolute;
+            width:40px ;
+            height: 40px;
+            border-left: none;
+            border-top:none;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            top:100%;
+            left: 20%;
+            margin-left:-20px;
+            content: "";
+            transform:rotate(45deg) ;
+            margin-top: -20px;
+            background-color: rgb(131, 20, 235);
+        }
+    .about_after{
+        position: relative;
+        width:350px ;
+        height:150px;
+        border: 3px solid whitesmoke;
+        margin:auto ;
+        box-sizing: border-box;
+    }   
+    .about_after::after{
+        position:absolute;
+        background-color: rgb(131, 20, 235) ;
+        content: "";
+        width:30px;
+        height:30px;
+        border-left:3px solid white;
+        border-right:0px solid white;
+        border-bottom:3px solid white;
+        border-top:0px solid white;
+        transform:rotate(45deg);
+        margin-top:-18px;
+        margin-left:-18px ; 
+        top:30%;
+        left:0%;
+    }
+
+
+    
+    
+    </style>
+</head>
+<body>
+    <div class="div_box">
+            Lorem a galley of type and scrambled it to make a type specimen book. It has survived aining Lorem Ipsum passages, and more recently with  desktop publishing software like Aldus PageMaker including versions
+            Lore
+    </div>
+
+    <div class="about_after">
+      
+    </div>
+</body>
+</html>

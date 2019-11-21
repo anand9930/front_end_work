@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(37, 37, 37);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .chart-wrapper {
+        width: 450px;
+        height: 450px;
+        background-color: rgb(238, 238, 238);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pie {
+        border-radius: 100%;
+        height: calc(var(--size, 200) * 1px);
+        overflow: hidden;
+        position: relative;
+        width: calc(var(--size, 200) * 1px);
+      }
+      .pie__segment {
+        --a: calc(var(--over50, 0) * -100%);
+        --b: calc((1 + var(--over50, 0)) * 100%);
+        --degrees: calc((var(--offset, 0) / 100) * 360);
+        -webkit-clip-path: polygon(
+          var(--a) var(--a),
+          var(--b) var(--a),
+          var(--b) var(--b),
+          var(--a) var(--b)
+        );
+        clip-path: polygon(
+          var(--a) var(--a),
+          var(--b) var(--a),
+          var(--b) var(--b),
+          var(--a) var(--b)
+        );
+        height: 100%;
+        position: absolute;
+        -webkit-transform: translate(0, -50%) rotate(90deg)
+          rotate(calc(var(--degrees) * 1deg));
+        transform: translate(0, -50%) rotate(90deg)
+          rotate(calc(var(--degrees) * 1deg));
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        width: 100%;
+        z-index: calc(1 + var(--over50));
+      }
+
+      .pie__segment:after,
+      .pie__segment:before {
+        background: var(--bg, #e74c3c);
+        content: "";
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+      .pie__segment:before {
+        --degrees: calc((var(--value, 45) / 100) * 360);
+        -webkit-transform: translate(0, 100%)
+          rotate(calc(var(--degrees) * 1deg));
+        transform: translate(0, 100%) rotate(calc(var(--degrees) * 1deg));
+        -webkit-transform-origin: 50% 0%;
+        transform-origin: 50% 0%;
+      }
+      .pie__segment:after {
+        opacity: var(--over50, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="chart-wrapper">
+        <div class="pie">
+          <div
+            class="pie__segment"
+            style="--offset: 0; --value: 20; --bg: #db0a5b;"
+          ></div>
+          <div
+            class="pie__segment"
+            style="--offset: 20; --value: 25; --bg: #22a7f0;"
+          ></div>
+          <div
+            class="pie__segment"
+            style="--offset: 45; --value: 55; --bg: #2ecc71; --over50: 1; "
+          ></div>
+          <div
+            class="pie__segment"
+            style="--offset: 100; --value: 0; --bg: #4d05e8;"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const pie = document.querySelector(".pie");
+    const actions = document.querySelector(".actions");
+    const segments = pie.children;
+
+    const updateSegment = e => {
+      const idx = [...actions.children].indexOf(e.target);
+      const key = idx % 2 === 0 ? "offset" : "value";
+      const toUpdate = segments[Math.floor(idx / 2) - 1];
+      toUpdate.style.setProperty(`--${key}`, e.target.value);
+    };
+    window.addEventListener("input", updateSegment);
+  </script>
+</html>

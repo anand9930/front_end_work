@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>form2</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .formly {
+        font-family: "Roboto", sans-serif;
+        background-color: rgb(255, 255, 255);
+        display: grid;
+        width: 600px;
+        height: 500px;
+        grid-template-areas:
+          "cn cn cw cw "
+          "q1 q1 q1 q1"
+          "q2 q2 q2 q2"
+          "q3 q3 q3 q3"
+          "fn fn ln ln"
+          "be be bp bp"
+          ".btn btn.";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        margin: 0px;
+      }
+      .cn {
+        grid-area: cn;
+      }
+      .cw {
+        grid-area: cw;
+      }
+      .q1 {
+        grid-area: q1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .q2 {
+        grid-area: q2;
+      }
+      .q3 {
+        grid-area: q3;
+      }
+      .fn {
+        grid-area: fn;
+      }
+      .ln {
+        grid-area: ln;
+      }
+      .be {
+        grid-area: be;
+      }
+      .bp {
+        grid-area: bp;
+      }
+      .btn {
+        grid-area: btn;
+        display: flex;
+        justify-content: center;
+      }
+      fieldset {
+        position: relative;
+        border: none;
+      }
+      .box {
+        border: 2px solid rgb(224, 224, 224);
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 14px 14px;
+        outline: none;
+        transition: 180ms border ease-in;
+        width: 100%;
+        font-size: 17px;
+      }
+
+      .box:focus {
+        border: 2px solid rgb(0, 38, 251);
+      }
+      .box:focus ~ .box-label,
+      .box:valid ~ .box-label {
+        position: absolute;
+        top: -2px;
+        transform: scale(0.8, 0.8);
+        left: 10px;
+        color: rgb(0, 38, 251);
+      }
+      .box-label {
+        position: absolute;
+        top: 23px;
+        left: 20px;
+        font-size: 15px;
+        transition: all 180ms ease;
+        background-color: rgb(255, 255, 255);
+        padding: 0px 5px;
+        color: rgb(107, 107, 107);
+      }
+      .question {
+        margin: 0px 14px;
+        font-size: 16px;
+        color: rgb(107, 107, 107);
+      }
+      .radiobuttons {
+        display: flex;
+      }
+      .rbo {
+        position: relative;
+        display: block;
+        float: left;
+        width: 70px;
+        height: 70px;
+        border-radius: 3px;
+        background-color: #606062;
+        background-image: linear-gradient(#474749, #606062);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15),
+          inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+        transition: all 0.15s ease;
+      }
+      .rbo svg {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #fff;
+        stroke-width: 2.1;
+        stroke-dasharray: 17;
+        stroke-dashoffset: 17;
+        transform: translate3d(0, 0, 0);
+      }
+      .rbo + span {
+        float: left;
+        margin-left: 6px;
+      }
+      .form {
+        margin-left: 14px;
+        user-select: none;
+      }
+      .form label {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .form input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+      }
+      .form input[type="radio"]:checked + .rbo {
+        background-color: #606062;
+        background-image: linear-gradient(#255cd2, #1d52c1);
+      }
+      .form input[type="radio"]:checked + .rbo svg {
+        stroke-dashoffset: 0;
+        transition: all 0.15s ease;
+      }
+      .btn button {
+        width: 130px;
+        padding: 12px 0px;
+        background-color: #255cd2;
+        border: none;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        color: white;
+        border-radius: 5px;
+        letter-spacing: 0.5px;
+        margin: 0px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form class="formly" action="">
+        <div class="cn">
+          <fieldset>
+            <input
+              type="text"
+              name="Company name"
+              id="companyname"
+              class="box"
+              required
+            />
+            <label for="companyname" class="box-label">Company name</label>
+          </fieldset>
+        </div>
+        <div class="cw">
+          <fieldset>
+            <input
+              type="text"
+              name="Company website"
+              id="companywebsite"
+              class="box"
+              required
+            />
+            <label for="companywebsite" class="box-label"
+              >Company website</label
+            >
+          </fieldset>
+        </div>
+        <div class="q1">
+          <div class="question">
+            How many units are you looking to produce?
+          </div>
+          <fieldset>
+            <select name="howmanyunits" form="signupform" class="box">
+              <option value="0">1-1,000</option>
+              <option value="1">1,001-10,000</option>
+              <option value="2">10,001-20,000</option>
+              <option value="3">20,001-50,000</option>
+              <option value="4">50,000+</option>
+            </select>
+          </fieldset>
+        </div>
+        <div class="q2">
+          <div class="question">
+            Have you manufactured products before?
+          </div>
+          <div class="radiobuttons">
+            <div class="form">
+              <label for="rbo1">
+                <input type="radio" id="rbo1" name="q2" />
+                <span class="rbo">
+                  <svg width="42px" height="41px" viewBox="0 0 12 11">
+                    <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                  </svg>
+                </span>
+                <span>Yes</span>
+              </label>
+
+              <label for="rbo2">
+                <input type="radio" id="rbo2" name="q2" checked />
+                <span class="rbo">
+                  <svg width="12px" height="11px" viewBox="0 0 12 11">
+                    <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                  </svg>
+                </span>
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="q3">
+          <div class="question">
+            Do you have your product specs, design or CAD files already?
+          </div>
+          <div class="radiobuttons">
+            <div class="form">
+              <label for="rbo3">
+                <input type="radio" id="rbo3" name="q3" />
+                <span class="rbo">
+                  <svg width="12px" height="11px" viewBox="0 0 12 11">
+                    <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                  </svg>
+                </span>
+                <span>Yes</span>
+              </label>
+
+              <label for="rbo4">
+                <input type="radio" id="rbo4" name="q3" checked />
+                <span class="rbo">
+                  <svg width="12px" height="11px" viewBox="0 0 12 11">
+                    <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                  </svg>
+                </span>
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="fn">
+          <fieldset>
+            <input
+              type="text"
+              name="first name"
+              id="firstname"
+              class="box"
+              required
+            />
+            <label for="firstname" class="box-label">First name</label>
+          </fieldset>
+        </div>
+        <div class="ln">
+          <fieldset>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              class="box"
+              required
+            />
+            <label for="lastname" class="box-label">Last name</label>
+          </fieldset>
+        </div>
+        <div class="be">
+          <fieldset>
+            <input
+              type="email"
+              name="businessemail"
+              id="businessemail"
+              class="box"
+              required
+            />
+            <label for="businessemail" class="box-label">Business Email</label>
+          </fieldset>
+        </div>
+        <div class="bp">
+          <fieldset>
+            <input
+              type="number"
+              name="businessphone"
+              id="businessphone"
+              class="box"
+              required
+            />
+            <label for="businessphone" class="box-label">Business Phone</label>
+          </fieldset>
+        </div>
+        <div class="btn"><button>Submit</button></div>
+      </form>
+    </div>
+  </body>
+</html>

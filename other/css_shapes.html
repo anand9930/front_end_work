@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css shapes</title>
+    <style>
+        body{
+            background-color:rgb(8, 8, 8) ;
+            color: azure;
+            font-family: monospace;
+            font-size: 18px;
+
+            
+        }
+    .container{
+        position: relative;
+        width:600px;
+        border:3px solid whitesmoke; 
+        padding:50px;
+        margin: 100px auto;
+    }
+    .car_image{
+        clip-path: circle(40%);
+        width:200px;
+       float: left;  
+       shape-outside: circle(40%);
+      margin-right: 20px;
+   
+    }
+    .simple_text{
+        padding:20px ;
+    }
+
+
+    /*with css grid and floats*/
+    .wrapper{
+        border: 3px solid snow;
+        position: relative;
+        display:flex ;
+        width:700px;
+        margin:100px auto ;
+        padding:40px ;
+    }
+    .flex_image{
+        align-self:center ;
+        width:200px ;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 26% 100%);
+        shape-outside:polygon(0 0, 100% 0, 100% 100%, 26% 100%);
+    }
+
+    .bigbox{
+        position: relative;
+        margin:100px auto;
+        border:3px solid seashell;
+        width:700px;
+        padding:20px ;
+    }
+    .image{
+
+        float: right;
+        width:200px ;
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 55% 100%);
+        shape-outside: polygon(0 0, 100% 0%, 100% 100%, 55% 100%);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div > <img src="images\car.jpg" class="car_image" alt="this is a car" width="200px"></div>
+        <p class="simple_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+
+    </div>
+
+ <div class="wrapper">
+        <p class="another_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        <img src="images\car.jpg" class="flex_image" alt="this is a car" >
+ </div>   
+ <div class="bigbox">
+        <img src="images\car.jpg" class="image" alt="this is a car" >
+        <p class="another_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        
+ </div> 
+
+</body>
+</html>

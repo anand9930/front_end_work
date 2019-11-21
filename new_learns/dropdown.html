@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(19, 19, 19);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: rgb(243, 243, 243);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .dropdown {
+        font-size: 20px;
+        font-family: sans-serif;
+        outline: none;
+        padding: 6px 8px;
+        box-sizing: border-box;
+        border: 1.9px solid black;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">
+        <select name="cars" class="dropdown" aria-placeholder="choose">
+          <option value="" hidden>choose</option>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+    </div>
+  </body>
+</html>

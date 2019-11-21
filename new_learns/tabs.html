@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(27, 27, 27);
+      }
+      .wrapper .small-wrapper {
+        width: 500px;
+        height: 500px;
+        background-color: rgb(0, 68, 255);
+      }
+      .tabs-block {
+        width: 100%;
+        height: 70px;
+        background-color: rgb(245, 245, 245);
+        display: flex;
+      }
+      .tab {
+        cursor: pointer;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+      }
+      .active {
+        background-color: rgb(0, 68, 255);
+        color: rgb(250, 250, 250);
+      }
+      .tab-content-block {
+        width: 100%;
+        height: 430px;
+        background-color: rgb(0, 68, 255);
+      }
+      .tab-content {
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        color: rgb(250, 250, 250);
+        display: none;
+        font-family: sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        padding: 10px 30px;
+        box-sizing: border-box;
+      }
+      .content-active {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="small-wrapper">
+        <div class="tabs-block">
+          <div class="tab active">tab 1</div>
+          <div class="tab">tab 2</div>
+          <div class="tab">tab 3</div>
+        </div>
+        <div class="tab-content-block">
+          <div class="tab-content content-active">
+            orem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scr
+          </div>
+          <div class="tab-content">
+            sum has been the industry's standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type
+          </div>
+          <div class="tab-content">
+            orem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const tab_list = document.getElementsByClassName("tab");
+    const content_list = document.getElementsByClassName("tab-content");
+    prev_tab = tab_list[0];
+    prev_content = content_list[0];
+    for (i = 0; i < tab_list.length; i++) {
+      tab = tab_list[i];
+      tab.addEventListener("click", function(e) {
+        prev_tab.classList.remove("active");
+        prev_content.classList.remove("content-active");
+        //
+        e.target.classList.add("active");
+        j = Array.from(e.target.parentNode.children).indexOf(e.target); //content position
+        content_list[j].classList.add("content-active");
+        //
+        prev_tab = e.target;
+        prev_content = content_list[j];
+      });
+    }
+  </script>
+</html>

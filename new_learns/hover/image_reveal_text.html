@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(236, 236, 236);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* cursor: none; */
+      }
+
+      #block {
+        width: 40%;
+        height: 100px;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(180, 165, 248);
+        color: rgb(59, 27, 241);
+        font-weight: 600;
+      }
+      #cursor {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        /* display: none; */
+        border-radius: 30px;
+        background-color: rgb(180, 165, 248);
+        transition: 0.1s;
+        transition-delay: 3ms;
+        overflow: hidden;
+      }
+      #cursor img {
+        object-fit: cover;
+        object-position: 0% 0%;
+        width: 100%;
+        height: 100%;
+      }
+      /* #block:hover ~ #cursor {
+        width: 70px;
+        height: 70px;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="block">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In illum autem
+        placeat repellendus magnam tempora qui minus et dolor ipsa repudiandae
+        dolores quas ex, voluptates error modi dolorem unde suscipit?
+        <div id="cursor">
+          <img
+            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=362&q=80"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    cursor = document.getElementById("cursor");
+    wrapper = document.getElementsByClassName("wrapper")[0];
+    block = document.getElementById("block");
+    block.addEventListener("mousemove", function(e) {
+      var x = e.clientX + 30;
+      var y = e.clientY + 30;
+      //   cursor.style.display = "block";
+
+      cursor.style.width = "140px";
+      cursor.style.height = "140px";
+      cursor.style.left = x + "px";
+      cursor.style.top = y + "px";
+    });
+
+    block.addEventListener("mouseleave", function(e) {
+      //   var x = e.clientX;
+      //   var y = e.clientY;
+      // cursor.style.display = "none";
+
+      cursor.style.width = "0px";
+      cursor.style.height = "0px";
+      //   cursor.style.left = x + "px";
+      //   cursor.style.top = y + "px";
+    });
+  </script>
+</html>

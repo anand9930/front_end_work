@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(251, 251, 251);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .draggable-source--is-dragging {
+        visibility: hidden;
+      }
+
+      .draggable-container--is-dragging {
+        border: 2px solid blue;
+      }
+
+      .draggable--original {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <ul class="draggable-source">
+        <li>hello</li>
+        <li>anand</li>
+        <li>bunny</li>
+        <li>what</li>
+        <li>the hell</li>
+      </ul>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.js"></script>
+  <script>
+    console.log("hi");
+
+    const sortable = new Draggable.Sortable(document.querySelector("ul"), {
+      draggable: "li"
+    });
+
+    // sortable.on("sortable:start", () => console.log("sortable:start"));
+    // sortable.on("sortable:sort", () => console.log("sortable:sort"));
+    // sortable.on("sortable:sorted", () => console.log("sortable:sorted"));
+    // sortable.on("sortable:stop", () => console.log("sortable:stop"));
+
+    sortable.on("sortable:start", () => {
+      console.log("sortable:start");
+    });
+    sortable.on("sortable:sort", () => {
+      console.log("sortable:sort");
+    });
+    sortable.on("sortable:sorted", () => {
+      console.log("sortable:sorted");
+    });
+    sortable.on("sortable:stop", () => {
+      console.log("sortable:stop");
+    });
+  </script>
+</html>

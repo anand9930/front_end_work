@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>intern_project</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: rgb(255, 255, 255);
+        padding: 0px;
+        margin: 0px;
+        font-family: Montserrat, sans-serif;
+      }
+      .container {
+        background-color: rgb(255, 255, 255);
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        padding: 0px;
+        margin: 0px;
+        background-color: rgb(253, 253, 253);
+        width: 100%;
+        height: 9vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .header > .logo {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+      }
+
+      .header > .search-bar {
+        flex: 3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .search-bar > input {
+        width: 80%;
+        height: 30px;
+        outline: none;
+        background-color: rgb(246, 246, 246);
+        border: none;
+      }
+      .header > .sign-in-button {
+        display: flex;
+        justify-content: flex-start;
+        flex: 1;
+      }
+      .sign-in-button > button {
+        font-family: Montserrat, sans-serif;
+        background-color: #fccd05;
+        border: 0px;
+        padding: 11px 20px;
+        outline: none;
+        border-radius: 3px;
+        color: rgb(66, 66, 66);
+        box-sizing: border-box;
+        transition: 200ms all ease-in;
+        cursor: pointer;
+      }
+      .sign-in-button > button:hover {
+        background-color: #ffd727;
+      }
+      .about-us-intro {
+        width: 100%;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .about-us-title {
+        font-size: 21px;
+        color: rgb(59, 59, 59);
+        margin-bottom: 30px;
+      }
+      .about-us-heading {
+        font-size: 67px;
+        color: rgb(14, 14, 14);
+        margin-bottom: 30px;
+        padding: 0px 150px;
+        text-align: center;
+      }
+      .about-us-text {
+        font-size: 23px;
+        color: rgb(71, 71, 71);
+        padding: 0px 150px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .about-detail-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        background-color: rgb(235, 246, 255);
+        height: 200px;
+      }
+      .about-detail-grid div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .detail-title {
+        color: rgb(119, 0, 255);
+        font-size: 40px;
+      }
+      .detail-content {
+        color: rgb(70, 70, 70);
+        font-size: 18px;
+        text-align: center;
+        padding: 10px 30px;
+      }
+      .why-q-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        width: 100%;
+        height: 550px;
+      }
+      .q-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 50px;
+      }
+      .q-qtn {
+        color: black;
+        font-size: 38px;
+        padding: 30px 0px 10px 0px;
+      }
+      .q-ans {
+        color: rgb(17, 17, 17);
+        font-size: 16px;
+        padding: 20px 50px 20px 0px;
+      }
+      .q-img {
+        background: url("https://images.unsplash.com/photo-1501542829340-01f4b681215d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .quote-block {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        background-color: azure;
+      }
+      .quote-block div {
+        text-align: center;
+        width: 55%;
+      }
+      .big-quote-grid {
+        display: grid;
+        grid-template-rows: 50px 1fr 50px;
+      }
+      .bigquotes1 {
+        margin-right: auto;
+        font-size: 50px;
+        color: #7700ff;
+      }
+      .bigquotes2 {
+        margin-left: auto;
+        margin-bottom: auto;
+        font-size: 50px;
+        color: rgb(119, 0, 255);
+      }
+      .big-quote-text {
+        text-align: center;
+        font-size: 20px;
+      }
+      .big-footer {
+        margin-top: 30px;
+        background-color: rgb(15, 15, 15);
+        width: 100%;
+      }
+      .footer-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fccd05;
+        color: rgb(32, 32, 32);
+      }
+      .ftitle {
+        font-size: 38px;
+        padding: 70px 30px 30px 30px;
+      }
+      .fbody {
+        text-align: center;
+        font-size: 17px;
+        padding: 0px 15% 20px 15%;
+        font-family: "Roboto", sans-serif;
+      }
+      .flink {
+        font-size: 20px;
+        padding: 10px 14px;
+        background-color: rgb(20, 20, 20);
+        border: none;
+        text-decoration: none;
+        color: white;
+        margin-top: 20px;
+        margin-bottom: 70px;
+      }
+      .footer-bottom {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-areas:
+          "a a b b"
+          "c d e f"
+          "g h e f"
+          "i j e f";
+
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        margin: 30px 15px;
+        background-color: rgb(15, 15, 15);
+        color: rgb(241, 241, 241);
+      }
+      .a {
+        grid-area: a;
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      .a span {
+        font-size: 29px;
+      }
+      .b {
+        grid-area: b;
+        padding: 10px 20px 10px 20px;
+      }
+      .c {
+        grid-area: c;
+      }
+      .d {
+        grid-area: d;
+      }
+      .e {
+        grid-area: e;
+        display: flex;
+        flex-direction: column;
+      }
+      .e > div {
+        padding: 10px 20px 10px 20px;
+      }
+      .f {
+        grid-area: f;
+        display: flex;
+        flex-direction: column;
+      }
+      .f > div {
+        padding: 10px 20px 10px 20px;
+      }
+      .g {
+        grid-area: g;
+      }
+      .h {
+        grid-area: h;
+      }
+      .i {
+        grid-area: i;
+      }
+      .j {
+        grid-area: j;
+      }
+      .c-name {
+        font-size: 13px;
+      }
+      /* small screen design */
+      @media (max-width: 480px) {
+        #header-apply {
+          font-size: 13.5px;
+          height: 15vh;
+        }
+        #cross {
+          color: black;
+          cursor: pointer;
+          margin-top: 14px;
+          margin-left: 30px;
+        }
+        .header > .search-bar {
+          display: flex;
+          flex: 2;
+          justify-content: center;
+          width: 100%;
+        }
+        .sign-in-button > button {
+          padding: 7px 15px;
+          cursor: pointer;
+        }
+        .about-us-intro {
+          width: 100%;
+          height: 800px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .about-us-title {
+          font-size: 21px;
+          color: rgb(59, 59, 59);
+          margin-bottom: 30px;
+        }
+        .about-us-heading {
+          font-size: 47px;
+          color: rgb(14, 14, 14);
+          margin-bottom: 30px;
+          padding: 0px s0px;
+          text-align: center;
+        }
+        .about-us-text {
+          font-size: 26px;
+          color: rgb(39, 39, 39);
+          margin-bottom: 30px;
+        }
+        .footer-bottom {
+          display: grid;
+          margin: 30px 15px;
+          grid-gap: 5px;
+          grid-template-areas:
+            "a a a a"
+            "b b b b"
+            "e e f f"
+            "e e f f"
+            "c c d d"
+            "g g h h"
+            "i i j j";
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(7, 1fr);
+        }
+      }
+    </style>
+    <script>
+      function myfunc() {
+        document.getElementById("header-apply").style.height = "0px";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo"><h3>Sourcak</h3></div>
+        <div class="search-bar"><input type="text" name="" id="" /></div>
+        <div class="sign-in-button"><button>Sign in</button></div>
+      </div>
+      <div class="about-us-intro">
+        <div class="about-us-title">
+          ABOUT US
+        </div>
+        <div class="about-us-heading">
+          Disrupting the way trade happens globally.
+        </div>
+        <div class="about-us-text">
+          Sourcak is a sourcing platform which uses technology, over a billion
+          record of trade data and an army of finders to make international
+          procurement more cost-effective. With us, you can manage your entire
+          procurement process from a single platform.
+        </div>
+      </div>
+      <div class="about-detail-grid">
+        <div>
+          <div class="detail-title">$7B</div>
+          <div class="detail-content">
+            Annual inquries processed by our partner factories
+          </div>
+        </div>
+        <div>
+          <div class="detail-title">1 billion +</div>
+          <div class="detail-content">
+            Past shipment data and intelligence
+          </div>
+        </div>
+        <div>
+          <div class="detail-title">2500+</div>
+          <div class="detail-content">
+            Potential global sourcing partners
+          </div>
+        </div>
+      </div>
+      <div class="why-q-block">
+        <div class="q-block">
+          <div class="q-qtn">Why do we exist?</div>
+          <div class="q-ans">
+            Procurement managers across the world spend countless hours flying
+            across the world, making multiple trial order only to delay the
+            speed of the project. Countless online marketplaces have sprung up
+            in the last decade with millions of registered suppliers and with it
+            came an army of scamsters. Apart from that risk of fraud, there is
+            also the tedious job of having to go through 100s of similar quotes.
+            We have developed a unique model for cross border procurement which
+            will be patented shortly, where we use artificial intelligence, past
+            trade records, industry trends, and pricing worldwide and our army
+            of finders to help recommend the best supplier for you. Our team
+            starts with the process of request for quotes which our army of
+            finders take up along with the procurement team. We target the top
+            1% of manufacturers and traders in various categories. We use
+            in-house and third-party verification agency where we can submit
+            factory photos and also undertake process inspection as against just
+            a final quality template like a certificate which is currently being
+            supplied by manufacturers. We will help you find reliable suppliers
+            which will further result in cost and time savings.
+          </div>
+        </div>
+        <div class="q-img"></div>
+      </div>
+      <div class="quote-block">
+        <div>
+          <span class="big-quote-grid">
+            <span class="bigquotes1">
+              <img
+                src="https://img.icons8.com/material-rounded/48/7700ff/quote-left.png"
+              />
+            </span>
+            <span class="big-quote-text">
+              We won a contract for the supply of large school furniture to
+              Department of Education in Madagascar. Balancing market-related
+              prices with good quality was becoming a challenge so we approached
+              Sourcak. Sourcak took over the entire process of procurement,
+              inspection, and shipment. We kept getting photos interval so we
+              knew the progress of the project. We have successfully supplied
+              over 100 containers of desks and boards to the Government.
+            </span>
+            <span class="bigquotes2"
+              ><img
+                src="https://img.icons8.com/material-rounded/48/7700ff/quote-right.png"
+            /></span>
+          </span>
+
+          <br />
+          Mr Felisberto Zanza CEO
+        </div>
+      </div>
+      <div class="big-footer">
+        <div class="footer-block">
+          <div class="ftitle">
+            We make cross border procurement easy.
+          </div>
+          <div class="fbody">
+            Outsource your supply-chain and procurement roles to us and benefit
+            from the intelligence of a billion trade data which can be verified
+            by our army of finders. Begin by filling out an obligation free
+            request for quote or by registering as a buyer for both one-time and
+            recurring requirements.
+          </div>
+          <a class="flink" href=""> Sign up as a buyer </a>
+        </div>
+        <div class="footer-bottom">
+          <div class="a">
+            <span>Sourcak</span>
+            <br />Simplifies the trade, product development<br />
+            and project set up experience.
+          </div>
+          <div class="b">
+            Questions <br />
+            saurabh@mahabirindustries.com
+          </div>
+          <div class="c c-name">
+            INDIA <br />6th floor, Commercial point office park, 79 Lenin Sarani
+            Kolkata, India
+          </div>
+          <div class="d c-name">
+            ITALY <br />
+            Via Puccini 170 50019 Sesto Fiorentino Fl Italy
+          </div>
+          <div class="e">
+            <div>SOLUTIONS</div>
+            <div>FOR BUYERS</div>
+            <div>FOR SUPPLIERS</div>
+          </div>
+          <div class="f">
+            <div>ABOUT US</div>
+            <div>COMPANY</div>
+            <div>CAREERS</div>
+          </div>
+          <div class="g c-name">
+            SOUTH AFRICA<br />
+            Block A, Regus House, Wedgefield Business park, 17 Muswell Road
+            South, Bryanston 2191, South Africa
+          </div>
+          <div class="h c-name">
+            SPAIN <br />
+            Barbieri 26 Madrid 28004 spain
+          </div>
+          <div class="i c-name">
+            CHINA <br />
+            305A, Floor 3,Global Shoes Building,Houjie Town,Dongguan
+          </div>
+          <div class="j c-name">
+            LONDON <br />
+            71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

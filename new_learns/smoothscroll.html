@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .section1 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(245, 97, 134);
+        padding: 100px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 26px;
+        color: white;
+      }
+      .section1 button {
+        padding: 10px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 20px;
+        color: white;
+        border: 2px solid white;
+        background-color: transparent;
+      }
+      .section2 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(127, 13, 221);
+        padding: 100px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 70px;
+        color: white;
+      }
+
+      .section3 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(13, 51, 221);
+        padding: 100px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 70px;
+        color: white;
+      }
+
+      .section4 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(252, 163, 21);
+        padding: 100px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 70px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="section1">
+        <button onclick="smoothScroll(event,'.section2',420)">
+          click me
+        </button>
+      </div>
+      <div class="section2">
+        <button onclick="smoothScroll(event,'.section3',420)">click me</button>
+      </div>
+      <div class="section3">
+        <button onclick="smoothScroll(event,'.section4',420)">click me</button>
+      </div>
+
+      <div class="section4">
+        <button onclick="smoothScroll(event,'.section2',420)">click me</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function smoothScroll(event, target, duration) {
+      target = document.querySelectorAll(target)[0];
+      target2 = event.target;
+      // console.log(target);
+      targetPosition = target.getBoundingClientRect().top;
+      startPosition = window.pageYOffset;
+      //console.log(target.getBoundingClientRect());
+      //  console.log(targetPosition, startPosition);
+      distance = targetPosition; //- startPosition;
+      console.log(distance);
+      // if (distance === 0) {
+      //   distance = targetPosition;
+      // }
+      //  console.log(distance);
+      startTime = null;
+      function animation(currentTime) {
+        // console.log(currentTime);
+        if (startTime === null) {
+          startTime = currentTime;
+        }
+        timeElapsed = currentTime - startTime;
+        run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        // console.log(run);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+      //
+      function easeInOutCubic(t, b, c, d) {
+        // console.log(t, b, c, d);
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t * t + b;
+        t -= 2;
+        return (c / 2) * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    function scrollheight(event) {
+      x = event.target;
+      x = x.parentNode;
+      y = x.nextElementSibling;
+      // console.log(window.pageYOffset);
+      console.log(x.getBoundingClientRect().top);
+      console.log(y.getBoundingClientRect().top);
+    }
+  </script>
+</html>

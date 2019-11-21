@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>page cuts</title>
+    <style>
+    body{
+        background-color:black;
+    }
+    .container{
+        position: absolute;
+        width: 100vw;
+        height:100vh;
+        background-color:rgb(27, 27, 27);
+        top:0px;
+        left:0px;
+        display:flex;
+        flex-direction:column;
+    }
+    .page1{
+        background-color: blue;
+        width:100vw;
+        height:33vh;
+        clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+        z-index: 10;
+    }
+
+    .page2{
+        background-color: rgb(255, 0, 106);
+        width:100vw;
+        height:33vh;
+        clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+        margin-top: -49px;
+        shape-outside: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+        
+    }
+    .page3{
+        background-color: rgb(0, 255, 106);
+        width:100vw;
+        height:33vh;
+
+    }
+
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page1"></div>
+        <div class="page2"></div>
+        <div class="page3"></div>
+    </div>
+</body>
+</html>

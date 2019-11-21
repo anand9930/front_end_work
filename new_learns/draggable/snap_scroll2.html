@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        display: flex;
+        overflow: auto;
+        flex: none;
+        width: 50%;
+        height: 100vh;
+        flex-flow: column nowrap;
+      }
+
+      .y-scroll-snap {
+        scroll-snap-type: y mandatory;
+      }
+
+      .wrapper > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        scroll-snap-align: center;
+        flex: none;
+        line-height: 3;
+        font-size: 128px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .wrapper > div:nth-child(even) {
+        background-color: lightsalmon;
+      }
+
+      .wrapper > div:nth-child(odd) {
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper y-scroll-snap">
+      <div>Spread</div>
+      <div>Love</div>
+      <div>Not</div>
+      <div>Hate</div>
+    </div>
+  </body>
+</html>

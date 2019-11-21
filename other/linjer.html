@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <title>SLF</title>
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .osintro-block {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 100px;
+      }
+
+      .osintro-img {
+        margin: 100px 0px 50px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .osintro-img img {
+        width: 65%;
+        object-fit: cover;
+      }
+      .os-intro-text {
+        width: 65%;
+        font-size: 23px;
+        line-height: 36px;
+        font-family: "Playfair Display", serif;
+      }
+
+      .flowchart-wapper {
+        width: 100%;
+        height: 500px;
+        background-color: #f6f6f6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .flowchart-wrapper-title {
+        text-align: center;
+        font-size: 50px;
+      }
+      .flow-chart {
+        position: relative;
+        display: flex;
+        width: 70%;
+        height: 100px;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+        transition: 500ms all cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      .line {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        z-index: 2;
+      }
+      .circle {
+        display: flex;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid rgb(0, 0, 0);
+        background-color: white;
+        z-index: 3;
+        transition: 500ms all ease;
+      }
+      .direct-text {
+        font-size: 23px;
+        text-align: center;
+        padding: 20px 0px;
+        width: 70%;
+        line-height: 29px;
+        word-spacing: 7px;
+      }
+      .collection-block-grid {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 100%;
+        height: 350px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+      }
+      .show-collection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .show-collection div {
+        font-size: 40px;
+        font-family: "Playfair Display", serif;
+      }
+      .two-button {
+        margin-top: 20px;
+        width: 282px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .two-button a {
+        font-size: 15px;
+        padding: 10px 15px;
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+      }
+      .collection-img {
+        background: url("https://gallery.mailchimp.com/9a65171725137823c3c8abd0c/images/35941f18-2041-40cf-81f7-da34075d4229.gif");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .brand-img1 {
+        background: url("collection.gif");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .brand-img2 {
+        background: url("https://cdn.shopify.com/s/files/1/1598/5111/products/Untitled-1_1018c6c7-9e71-4072-bdd9-2c1a64325538_grande.jpg?v=1558435534");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .brand-img3 {
+        background: url("https://ae01.alicdn.com/kf/HTB1ScOXHVXXXXaRXpXXq6xXFXXXy/free-shipping-0-85mm-matte-PU-leather-waterproof-anti-wrinkle-synthetic-leather-for-shoes-glow-in.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .img-text1 {
+        display: flex;
+        padding: 0px 30px;
+        justify-content: center;
+        align-items: center;
+      }
+      .img-text-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+        margin: 0px auto;
+        background-color: rgb(255, 255, 255);
+      }
+      .brand-detail-title {
+        font-size: 35px;
+        font-family: "Playfair Display", serif;
+        padding-bottom: 10px;
+      }
+      .brand-detail-text {
+        font-size: 17px;
+        padding-top: 10px;
+        font-family: "Poppins", sans-serif;
+      }
+      .brand-detail-text form {
+        margin-top: 20px;
+        display: flex;
+      }
+      .brand-detail-text form input {
+        box-sizing: border-box;
+        padding: 7px;
+        font-size: 18px;
+        border: 1px solid rgb(173, 173, 173);
+      }
+      .brand-detail-text form button {
+        padding: 12px 15px;
+        box-sizing: border-box;
+        color: white;
+        font-size: 13px;
+        background-color: black;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+      }
+      .best-selling-title {
+        margin-top:50px; 
+        width: 100%;
+        text-align: center;
+        font-size: 40px;
+      }
+      .best-selling-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        width: 100%;
+        height: 300px;
+      }
+      .best-selling-grid a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .product-img {
+        width: 80%;
+        height: 50%;
+      }
+      .product-img img {
+        width: 250px;
+      }
+      .product-title{
+        font-size: 20px;
+        text-align: center;
+        padding: 0px 40px;
+      }
+      .price{
+        font-size: 15px;
+        padding-top:15px; 
+      }
+      @media (max-width: 480px) {
+        .osintro-img img {
+          width: 95%;
+          object-fit: cover;
+        }
+
+        .os-intro-text {
+          width: 85%;
+          font-size: 22px;
+          line-height:25px;
+        }
+        .flowchart-wapper {
+        height: 650px;
+      }
+        .flow-chart {
+          width: 65%;
+        }
+        .circle {
+          width: 40px;
+          height: 40px;
+        }
+        .direct-text {
+        font-size: 23px;
+        text-align: center;
+        padding: 20px 0px;
+        width: 80%;
+        line-height: 29px;
+        word-spacing: 7px;
+      }
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+        .collection-block-grid {
+          width: 100%;
+          display: grid;
+          height: 600px;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-template-areas: "a" "b";
+        }
+        .a {
+          grid-area: a;
+        }
+        .b {
+          grid-area: b;
+        }
+        .best-selling-grid {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        height: 500px;
+      }
+      .product-img img {
+        width: 160px;
+      }
+      .product-title{
+        font-size: 17px;
+        text-align: center;
+        padding: 0px 20px;
+      }
+      .price{
+        font-size: 13px;
+      }
+      }
+    </style>
+    <script>
+      $(document).ready(function() {
+        var myVar = setTimeout(myTimer1, 1000);
+
+        function myTimer5() {
+          $(".flow-chart").css({ width: "70%" });
+          $(" #circle4 ,#circle3,#circle2").css({
+            display: "flex",
+            opacity: "1",
+            visibility: "visible"
+          });
+          var myVar = setTimeout(myTimer1, 1000);
+        }
+
+        function myTimer1() {
+          $("#circle2").css({
+            opacity: "0",
+            visibility: "hidden"
+          });
+          var myVar = setTimeout(myTimer2, 1000);
+        }
+        function myTimer2() {
+          $("#circle3").css({
+            opacity: "0",
+            visibility: "hidden"
+          });
+          var myVar = setTimeout(myTimer3, 1000);
+        }
+        function myTimer3() {
+          $("#circle4 ").css({
+            opacity: "0",
+            visibility: "hidden"
+          });
+
+          var myVar = setTimeout(myTimer4, 1000);
+        }
+
+        function myTimer4() {
+          $(" #circle4 ,#circle3,#circle2").css({
+            display: "none"
+          });
+          $(".flow-chart").css({ width: "35%" });
+          var myVar = setTimeout(myTimer5, 1300);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="osintro-block">
+        <div class="osintro-img">
+          <img
+            src="https://cdn.shopify.com/s/files/1/1598/5111/files/Our-Story.jpg?16986514093635524039"
+          />
+        </div>
+        <div class="os-intro-text">
+          It all started out of personal problems. We were looking for
+          inexpensive eyewear and were surprised to see that one company really
+          controlled the market with major brands under their portfolio. Further
+          research showed that luxury brands mark up their products by up to ten
+          times. There had to be a better way of choosing between either a
+          overpriced luxury brand or a fast fashion brand. So we started
+          Slaughter & Fox out of a respectable balance between premium products
+          and revolutionary prices. The idea was to create minimalist,
+          high-quality products which didn’t cost a fortune.
+
+          <br /><br />
+          In the last 12 months, we have expanded our offering to include Made
+          in Italy bags for men and women and also luggage. We have amassed
+          thousands of happy customers all around the world and have gotten
+          accolades for our products.
+          <br /><br />
+          We are very excited about the future no matter what it holds as we
+          work on expanding our product assortment. It is after all just the
+          beginning.
+        </div>
+      </div>
+      <div class="flowchart-wapper">
+        <div class="flowchart-wrapper-title">Direct To You</div>
+        <div class="flow-chart">
+          <div class="line"></div>
+          <div class="circle" id="circle1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M17.945 8c-1.139 0-2.377.129-3.395.491-2.283.828-2.791.838-5.102 0-1.016-.362-2.257-.491-3.393-.491-1.971 0-4.17.387-6.055.878v1.789c.848.255 1.068.627 1.203 1.493.381 2.443 1.256 4.84 5.068 4.84 3.037 0 4.051-2.259 4.723-4.345.34-1.06 1.662-1.087 2.008-.015.674 2.089 1.682 4.36 4.725 4.36 3.814 0 4.689-2.397 5.07-4.841.135-.866.355-1.237 1.203-1.493v-1.788c-1.887-.491-4.084-.878-6.055-.878zm-15.472 4.915c-.117-.357-.223-.724-.312-1.101-.352-1.473-.043-1.789.434-2.074.695-.418 1.973-.665 3.295-.732-2.437.554-3.474 1.117-3.417 3.907zm11.75 0c-.117-.357-.223-.724-.312-1.101-.352-1.473-.043-1.789.434-2.074.695-.418 1.973-.665 3.295-.732-2.437.554-3.474 1.117-3.417 3.907z"
+              />
+            </svg>
+          </div>
+          <div class="circle" id="circle2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M0 15.562l1.932-7.562 3.526.891-1.974 7.562-3.484-.891zm18.415.902c.125.287.187.598.155.91-.079.829-.698 1.448-1.457 1.602-.254.533-.733.887-1.285 1.002-.244.512-.722.89-1.296 1.01-.325.668-.97 1.012-1.674 1.012-.516 0-1.004-.183-1.356-.538-.928.404-1.902-.048-2.232-.863-.596-.068-1.107-.452-1.332-.997-.599-.071-1.114-.458-1.34-1.003-1.188-.138-1.848-1.44-1.198-2.495-.233-.058-.494-.104-.751-.152l.383-1.464c.524.1 1.01.219 1.453.358.913-.655 2.151-.295 2.549.679.608.069 1.116.464 1.334 1 .598.068 1.111.451 1.335.998.738.082 1.36.653 1.449 1.434l.002.225.45.402c.252.291.68.324.96.106.286-.223.324-.624.075-.909l-1.457-1.279c-.157-.139.052-.38.213-.241l1.491 1.308c.257.294.692.332.969.114.285-.22.316-.631.068-.916l-1.896-1.628c-.162-.135.048-.38.208-.242l1.944 1.669c.248.282.678.335.967.114.283-.22.349-.606-.002-.995-1.24-1.112-2.671-2.405-4.143-3.796-.355.488-2.176 1.502-3.279 1.502s-1.779-.675-1.96-1.343c-.157-.582.051-1.139.531-1.419.535-.313 1.055-.762 1.562-1.269-.789-.586-1.203-.398-2.067.013-.503.238-1.1.521-1.854.647l.438-1.67c1.327-.488 2.549-1.608 4.505-.083l.491-.552c.395-.447.911-.715 1.503-.715.436 0 .91.161 1.408.417 1.518.793 2.293 1.256 3.443 1.294l.394 1.508h-.008c-1.797.033-2.676-.508-4.516-1.47-.513-.263-.859-.318-1.1-.044-.984 1.12-2.031 2.309-3.192 3.063.573.458 2.019-.458 2.592-.92.25-.201.638-.468 1.128-.468.553 0 .955.331 1.244.619.68.68 2.57 2.389 3.407 3.142.434-.242.868-.435 1.311-.605l.383 1.467c-.319.134-.633.286-.95.461zm-11.037.875l.609-.747c.25-.3.215-.722-.08-.944-.296-.223-.737-.158-.986.14l-.61.749c-.251.298-.214.721.08.942s.737.159.987-.14zm1.328 1.006l.617-.755c.248-.297.213-.722-.082-.943-.294-.221-.734-.159-.984.142l-.616.754c-.251.3-.21.712.086.936.297.222.729.167.979-.134zm1.343.992l.608-.747c.251-.299.215-.721-.08-.944-.296-.222-.735-.157-.986.142l-.609.745c-.251.3-.213.724.082.945.293.221.734.16.985-.141zm1.865-.691c-.294-.224-.735-.159-.987.139l-.612.751c-.249.299-.213.722.082.943.295.221.735.16.986-.142l.61-.75c.253-.297.217-.72-.079-.941zm1.427 1.134l-.24-.212c-.063.239-.173.464-.332.65l-.358.441c.133.106.288.176.448.176.149 0 .295-.046.415-.138.284-.223.317-.632.067-.917zm5.201-10.889l1.974 7.562 3.484-.891-1.932-7.562-3.526.891zm-7.959-6.891l-.986.174.521 2.954.984-.174-.519-2.954zm3.82.174l-.985-.174-.521 2.954.985.174.521-2.954zm3.597 1.228l-.867-.5-1.5 2.598.867.5 1.5-2.598zm-11.133-.5l-.867.5 1.5 2.598.867-.5-1.5-2.598z"
+              />
+            </svg>
+          </div>
+          <div class="circle" id="circle3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9.939 0l-.939 4.971v1.098c0 1.066-.933 1.931-2 1.931s-2-.865-2-1.932v-1.097l2.996-4.971h1.943zm-3.052 0l-2.887 4.971v1.098c0 1.066-.933 1.931-2 1.931s-2-.865-2-1.932v-1.097l4.874-4.971h2.013zm17.113 6.068c0 1.067-.934 1.932-2 1.932s-2-.933-2-2v-1.098l-2.887-4.902h2.014l4.873 4.971v1.097zm-10-1.168v1.098c0 1.066-.934 2.002-2 2.002-1.067 0-2-.933-2-2v-1.098l1.047-4.902h1.905l1.048 4.9zm2.004-4.9l2.994 5.002v1.098c0 1.067-.932 1.9-1.998 1.9s-2-.933-2-2v-1.098l-.939-4.902h1.943zm4.996 12v7h-18v-7h18zm2-2h-22v14h22v-14z"
+              />
+            </svg>
+          </div>
+          <div class="circle" id="circle4">
+            <svg
+              width="40"
+              height="40"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M24 23h-24v-13.275l2-1.455v-7.27h20v7.272l2 1.453v13.275zm-2-2v-7.416l-10 6.953-10-6.953v7.416h20zm-18-8.472v-9.528h16v9.527l-8 5.473-8-5.472zm8.181-7.948c-.094-.286.12-.58.418-.58.184 0 .356.117.417.302l2.587 6.493c.077.232-.048.481-.278.558-.231.077-.48-.048-.557-.279 0 0-1.633-.547-3.57.096l1.273 1.979c.133.194.04.46-.18.533l-.865.288-.182.03c-.163 0-.321-.069-.433-.195l-1.75-1.93c-.952.3-2.031-.047-2.391-.944-.082-.206-.125-.426-.125-.646 0-.64.358-1.292 1.133-1.673 3.882-1.906 4.503-4.032 4.503-4.032zm2.758.415c.69.291 1.268.848 1.572 1.598.304.751.276 1.555-.015 2.246l.67.284c.189-.448.289-.933.289-1.428 0-1.439-.852-2.787-2.233-3.372l-.283.672zm-.484 1.147c.398.167.731.488.906.92.175.432.159.894-.008 1.292l.653.277c.238-.566.262-1.223.013-1.837-.249-.614-.722-1.069-1.287-1.308l-.277.656z"
+              />
+            </svg>
+          </div>
+          <div class="circle" id="circle5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M17.997 18h-11.995l-.002-.623c0-1.259.1-1.986 1.588-2.33 1.684-.389 3.344-.736 2.545-2.209-2.366-4.363-.674-6.838 1.866-6.838 2.491 0 4.226 2.383 1.866 6.839-.775 1.464.826 1.812 2.545 2.209 1.49.344 1.589 1.072 1.589 2.333l-.002.619zm4.811-2.214c-1.29-.298-2.49-.559-1.909-1.657 1.769-3.342.469-5.129-1.4-5.129-1.265 0-2.248.817-2.248 2.324 0 3.903 2.268 1.77 2.246 6.676h4.501l.002-.463c0-.946-.074-1.493-1.192-1.751zm-22.806 2.214h4.501c-.021-4.906 2.246-2.772 2.246-6.676 0-1.507-.983-2.324-2.248-2.324-1.869 0-3.169 1.787-1.399 5.129.581 1.099-.619 1.359-1.909 1.657-1.119.258-1.193.805-1.193 1.751l.002.463z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="direct-text">
+          As a direct to consumer brand and by circumventing traditional
+          channels, designing products in-house, we try to cut the markup luxury
+          brands have which makes their products extraordinarily expensive. As a
+          result, you get a higher-quality, better-looking product, at a fifth
+          or so of the going price.
+        </div>
+      </div>
+      <div class="collection-block-grid">
+        <div class="show-collection b">
+          <div>Our Collections</div>
+          <div class="two-button">
+            <a href="">SHOP Link1</a>
+            <a href="">SHOP Link2</a>
+          </div>
+        </div>
+        <div class="collection-img a"></div>
+      </div>
+
+      <div class="collection-block-grid">
+        <div class="brand-img1 a"></div>
+        <div class="img-text-block b">
+          <div class="brand-detail-title">Hand Made Acetate eyewear</div>
+          <div class="brand-detail-text">
+            Our eyewear is mostly handmade using a high-quality single acetate
+            sheet with a high-quality polarized lens with anti-glare coating,
+            thus providing very high-quality products. Our products are designed
+            in New York and are mostly handmade globally in family-owned
+            factories.
+          </div>
+        </div>
+      </div>
+
+      <div class="collection-block-grid">
+        <div class="img-text-block b">
+          <div class="brand-detail-title">Italian Leather</div>
+          <div class="brand-detail-text">
+            We source the finest leather from leading Italian tanneries. Our
+            products are fully made in Italy.
+          </div>
+        </div>
+        <div class="brand-img2 a"></div>
+      </div>
+
+      <div class="collection-block-grid">
+        <div class="brand-img3 a"></div>
+        <div class="img-text-block b">
+          <div class="brand-detail-title">Sustainability</div>
+          <div class="brand-detail-text">
+            We are of the firm belief that while we make our products, no harm
+            should be caused to the environment. Our products are built to last
+            and our tanneries have achieved various accolades for playing a role
+            in protecting the environment.
+            <form action="" method="post">
+              <input type="email" name="" id="" />
+              <button>SUBSCRIBE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="best-selling-title">Men's Bestsellers</div>
+      <div class="best-selling-grid">
+        <a href="https://www.slaughterandfox.com/products/turtle-bay-c1?variant=33029128006">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/C535_C1_Front_grande.jpg?v=1560336171"
+              alt=""
+            />
+          </div>
+          <div class="product-title">Turtle Bay</div>
+          <span class="price" itemprop="price"
+            ><span
+              class="money"
+              data-original-value="620000"
+              data-inr="Rs. 29,236.65"
+              data-zar="R 6,200.00 ZAR"
+              >R 6,200.00 ZAR</span
+            ></span
+          >
+        </a>
+        <a href="https://www.slaughterandfox.com/collections/eyewear/products/hell-s-kitchen-c1?variant=34203868166">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/16003_C1_Front_grande.jpg?v=1518681765"
+            />
+          </div>
+          <div class="product-title">Hell’s Kitchen</div>
+          <span class="price" itemprop="price"
+            ><span
+              class="money"
+              data-original-value="79900"
+              data-zar="R 799.00 ZAR"
+              data-inr="Rs. 3,767.75"
+              data-gbp="&amp;pound;42.81 GBP"
+              >R 799.00 ZAR</span
+            >
+          </span>
+        </a>
+        <a href="https://www.slaughterandfox.com/products/slaughter-fox-messenger-shoulder-bag-made-in-italy?variant=21244596813908">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/Untitled-1_2edf0758-afc3-4667-9bc3-3131492eda9f_grande.jpg?v=1558435165"
+            />
+          </div>
+          <div class="product-title">
+            Slaughter & Fox Messenger Shoulder Bag, Made In Italy
+          </div>
+          <span class="price" itemprop="price"
+            ><span class="money" data-original-value="630000" data-inr="Rs. 29,708.21" data-zar="R 6,300.00 ZAR">R 6,300.00 ZAR</span>
+        </a>
+        <a href="https://www.slaughterandfox.com/products/slaughter-fox-monferrato-briefcase-made-in-italy?variant=21245211934804">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/Untitled-1_1018c6c7-9e71-4072-bdd9-2c1a64325538_grande.jpg?v=1558435534"
+            />
+          </div>
+          <div class="product-title">Slaughter & Fox Monferrato Briefcase, Made In Italy
+            </div>
+          <span class="price" itemprop="price"
+            ><span class="money" data-original-value="580000" data-inr="Rs. 27,350.41" data-zar="R 5,800.00 ZAR">R 5,800.00 ZAR</span>
+          </span>
+        </a>
+      </div>
+      <div class="best-selling-title">Women's Bestsellers</div>
+      <div class="best-selling-grid">
+        <a href="https://www.slaughterandfox.com/products/upper-east-side-c1?variant=28382293622868">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/232_C1_Front_grande.jpg?v=1521360051"
+              alt=""
+            />
+          </div>
+          <div class="product-title">Upper East Side</div>
+          <span class="price" itemprop="price"
+            ><span class="money" data-original-value="119900" data-zar="R 1,199.00 ZAR">R 1,199.00 ZAR</span></span
+          >
+        </a>
+        <a href="https://www.slaughterandfox.com/products/lincoln-square-c1">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/C1_Front_grande.png?v=1526724299"
+            />
+          </div>
+          <div class="product-title">Lincoln Square</div>
+          <span class="price" itemprop="price"
+            ><span class="money" data-original-value="99900" data-zar="R 999.00 ZAR" data-inr="Rs. 4,710.87">R 999.00 ZAR</span>
+          </span>
+        </a>
+        <a href="https://www.slaughterandfox.com/products/slaughter-fox-mecca-handbag-made-in-italy" >
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/Artboard_1_grande.png?v=1560317218"
+            />
+          </div>
+          <div class="product-title">
+              Slaughter & Fox Mecca Handbag, Made In Italy
+          </div>
+          <span class="price" itemprop="price"
+            ><span class="money" data-original-value="780000" data-zar="R 7,800.00 ZAR">R 7,800.00 ZAR</span>
+        </a>
+        <a href="https://www.slaughterandfox.com/collections/bags/products/slaughter-fox-tres-briefcase-made-in-italy">
+          <div class="product-img">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1598/5111/products/Artboard_4_grande.png?v=1560318205"
+            />
+          </div>
+          <div class="product-title">Slaughter & Fox Tres Briefcase, Made In Italy
+              
+            </div>
+          <span class="price" itemprop="price"
+            ><span class="money" data-original-value="620000" data-zar="R 6,200.00 ZAR">R 6,200.00 ZAR</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>finder</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+        background-color: bisque;
+        font-family: "Roboto", sans-serif;
+      }
+      .container {
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .head-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(
+            rgb(119, 0, 255, 0.85),
+            rgba(119, 0, 255, 0.85)
+          ),
+          url("https://images.unsplash.com/photo-1529672425113-d3035c7f4837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .menu-block {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .head-nav {
+        display: flex;
+        height: 55px;
+        align-items: center;
+        font-family: Montserrat, sans-serif;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+      }
+      .head-nav .logo {
+        flex-grow: 2;
+        font-size: 24px;
+        flex-shrink: 3;
+      }
+      .head-nav .head-right {
+        display: flex;
+        flex-grow: 3;
+        font-size: 15px;
+        flex-shrink: 1;
+        margin-left: 100px;
+        justify-content: center;
+      }
+      .head-nav .head-right div {
+        margin: 0px 18px;
+      }
+
+      .head-right .join-now a {
+        text-decoration: none;
+        padding: 8px 15px;
+        background-color: #fccd05;
+        border-radius: 2px;
+        color: rgb(58, 58, 58);
+        transition: 200ms all ease;
+      }
+      .head-right .join-now a:hover {
+        background-color: #ffd727;
+      }
+      .head-right div a {
+        color: rgb(240, 240, 240);
+        text-decoration: none;
+      }
+
+      /* drop dowm*/
+      .nav-company {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        border-radius: 5px 5px 0px 0px;
+        cursor: pointer;
+      }
+      .nav-company:hover .small-box {
+        visibility: visible;
+        transform: translateY(-7px);
+      }
+      .small-box {
+        position: absolute;
+        top: calc(100% + 20px);
+        margin: 0px auto;
+        width: calc(100% + 90px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 4px 4px 4px 4px;
+        visibility: hidden;
+        transition: 270ms all ease-out;
+      }
+      .nav-company .small-box a {
+        text-decoration: none;
+        width: 100%;
+        padding: 20px;
+        margin-left: 20px;
+        background-color: rgb(255, 255, 255);
+        overflow: hidden;
+        color: rgb(54, 54, 54);
+        transition: 170ms background-color ease;
+      }
+      .nav-company .small-box a:hover {
+        background-color: rgb(240, 240, 240);
+      }
+      /* end of dropdown*/
+
+      .head-space {
+        flex: 0.6;
+      }
+      .intro-text {
+        margin: 10px 0px 100px 0px;
+        display: grid;
+        grid-template-areas:
+          ". . x x ."
+          ". . x x .";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 3fr 3fr 1fr;
+        height: 70vh;
+      }
+      .x {
+        grid-area: x;
+      }
+      .header-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .big-text {
+        font-family: Montserrat, sans-serif;
+        font-size: 42px;
+        color: rgb(255, 255, 255);
+        margin-top: 0px;
+        direction: rtl;
+        line-height: 55px;
+      }
+      .small-text {
+        font-family: "Roboto", sans-serif;
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        margin: 25px 0px;
+      }
+      .button-section {
+        margin-top: 48px;
+      }
+      .button-section a {
+        text-decoration: none;
+        font-family: Montserrat, sans-serif;
+        padding: 14px 20px;
+        font-size: 18px;
+      }
+      .a-btn {
+        background-color: #fccd05;
+        color: rgb(66, 66, 66);
+        margin: 0px 20px;
+      }
+      .l-btn {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        margin: 0px 20px;
+      }
+      .whatis-section {
+        background-color: rgb(255, 255, 255);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        height: 700px;
+        margin-bottom: 100px;
+      }
+      .whatis-section .whatis-content {
+        margin-left: 60px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+      }
+      .whatis-title1 {
+        font-family: "Roboto", sans-serif;
+        padding: 20px 0px;
+      }
+      .whatis-title2 {
+        font-family: Montserrat, sans-serif;
+        font-size: 46px;
+        padding: 30px 0px;
+        color: rgb(252, 207, 5);
+      }
+      .whatis-text {
+        font-family: Montserrat, sans-serif;
+        font-size: 38px;
+        padding: 25px 0px;
+        word-spacing: 10px;
+        color: rgb(119, 0, 255);
+        line-height: 40px;
+      }
+      /* under construction*/
+      .under-construct {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: rgb(252, 250, 250);
+      }
+      .card-wrapper {
+        margin-top: 200px;
+        transform: rotate(-30deg);
+        background-color: rgb(252, 250, 250);
+        display: grid;
+        grid-template-areas:
+          ".  q ."
+          ".  q r"
+          "p  q r"
+          "p  s r"
+          "p  s ."
+          ".  s .";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-gap: 30px 40px;
+      }
+      .p {
+        grid-area: p;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .q {
+        grid-area: q;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .r {
+        grid-area: r;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .s {
+        grid-area: s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-block-45deg {
+        width: 260px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        font-family: "Varela Round", sans-serif;
+      }
+
+      .block-status div {
+        padding: 5px 5px;
+        background-color: #d0f3e3;
+        border-radius: 4px;
+        color: #4dc08c;
+        font-family: "Varela Round", sans-serif;
+      }
+
+      /* end of under construction*/
+      .who-section {
+        background-color: rgb(255, 255, 255);
+        display: grid;
+        grid-template-columns: 1.7fr 1fr;
+        margin-top: 100px;
+      }
+      .who-section .who-content {
+        background-color: rgb(255, 255, 255);
+        margin-left: 60px;
+      }
+      .who-title1 {
+        font-family: "Roboto", sans-serif;
+        padding: 20px 0px;
+      }
+      .who-title2 {
+        font-family: Montserrat, sans-serif;
+        font-size: 26px;
+        padding: 25px 0px;
+        color: rgb(119, 0, 255);
+      }
+      .who-text {
+        font-family: "Roboto", sans-serif;
+        padding: 19px 0px;
+        font-size: 17px;
+        color: rgb(44, 44, 44);
+      }
+      /*under construction*/
+      .under-construct2 {
+        background: url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      /*end of under construction*/
+      .map-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        background-color: rgb(235, 235, 235);
+        color: rgb(117, 117, 117);
+      }
+      .question-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(119, 0, 255);
+        color: white;
+      }
+      .qtitle {
+        font-family: Montserrat, sans-serif;
+        font-size: 35px;
+        padding: 30px 20px;
+      }
+      .qtext1 {
+        font-size: 25px;
+        padding: 8px 20px;
+      }
+      .qtext2 {
+        font-size: 20px;
+        padding: 5px 20px 30px 20px;
+      }
+      .info1 {
+        background-color: rgb(253, 253, 253);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .info-content {
+        margin-left: 60px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(253, 253, 253);
+      }
+      .info-no {
+        background-color: #fccd05;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
+        font-size: 29px;
+        color: rgb(20, 20, 20);
+        font-family: Montserrat, sans-serif;
+      }
+      .info-title {
+        font-family: Montserrat, sans-serif;
+        font-size: 32px;
+        color: rgb(119, 0, 255);
+        padding: 23px 0px;
+      }
+      .info-text1 {
+        color: rgb(44, 44, 44);
+        font-size: 19px;
+        padding: 20px 0px;
+      }
+      .info-text2 {
+        color: rgb(44, 44, 44);
+        font-size: 19px;
+        padding: 20px 0px;
+      }
+      .info-btn {
+        padding: 70px 0px;
+      }
+      .info-btn a {
+        padding: 13px 20px;
+        text-decoration: none;
+        color: rgb(119, 0, 255);
+        border: 3px solid rgb(119, 0, 255);
+        font-family: Montserrat, sans-serif;
+        transition: 190ms all ease-in-out;
+      }
+      .info-btn a:hover {
+        background-color: rgb(119, 0, 255);
+        color: rgb(255, 255, 255);
+        border: 3px solid rgb(119, 0, 255);
+        font-family: Montserrat, sans-serif;
+      }
+      .card-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /*card-block*/
+      .card-block {
+        flex: 1;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        margin: 0px 22px;
+        font-family: "Varela Round", sans-serif;
+        height: 460px;
+      }
+      .card-section {
+        background-color: rgb(255, 255, 255);
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+      }
+      .block {
+        border-bottom: 2px solid rgb(240, 240, 240);
+        color: #acacac;
+      }
+      .block-title {
+        padding: 20px 0px 10px 0px;
+        font-size: 16px;
+      }
+      .block-text {
+        padding: 10px 0px 20px 0px;
+        font-size: 17px;
+        color: rgb(119, 0, 255);
+        font-family: Montserrat, sans-serif;
+      }
+      .progress-bar1 {
+        display: flex;
+        padding: 10px 0px 20px 0px;
+      }
+      .progress-bar1 div {
+        width: 35px;
+        height: 6px;
+        background-color: #4dc08c;
+        margin: 0px 4px;
+      }
+      .progress-bar1 div:nth-child(5) {
+        background-color: #dddddd;
+      }
+      .progress-bar2 {
+        display: flex;
+        padding: 10px 0px 20px 0px;
+      }
+      .progress-bar2 div {
+        width: 35px;
+        height: 6px;
+        background-color: #4dc08c;
+        margin: 0px 4px;
+      }
+      .progress-bar2 div:nth-child(4) {
+        background-color: #dddddd;
+      }
+      .progress-bar2 div:nth-child(5) {
+        background-color: #dddddd;
+      }
+      .block-status {
+        padding: 10px 0px 20px 0px;
+      }
+      .block-status span {
+        padding: 5px 10px;
+        background-color: #d0f3e3;
+        border-radius: 4px;
+        color: #4dc08c;
+        font-family: "Varela Round", sans-serif;
+      }
+      #last-block {
+        border-bottom: none;
+        padding: 5px 0px;
+      }
+      /* for block2*/
+      .block-status #under-progress {
+        background-color: #fdcbb7;
+        color: #f87f7a;
+      }
+      /*end extra for block2*/
+      /*end of card block*/
+      .info2 {
+        background-color: rgb(253, 253, 253);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .info-content2 {
+        margin-right: 60px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(253, 253, 253);
+      }
+      .slider-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(250, 250, 250);
+      }
+      .slider-heading {
+        font-family: Montserrat, sans-serif;
+        font-size: 27px;
+        padding: 30px 0px;
+      }
+      .slider {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 2fr 1fr;
+        padding: 20px 0px;
+      }
+      .slider-wrapper {
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      .inner-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300%;
+        height: 100%;
+        position: relative;
+        left: -100%;
+      }
+
+      .slide {
+        width: calc(100% / 3);
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        overflow: hidden;
+      }
+      .slide-section {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        padding: 60px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .slide-title {
+        font-family: Montserrat, sans-serif;
+        font-size: 30px;
+        color: rgb(119, 0, 255);
+        padding: 0% 0% 4% 0%;
+      }
+      .slide-text {
+        font-size: 18px;
+        color: rgb(44, 44, 44);
+        line-height: 25px;
+      }
+      .prev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .next {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .arrow {
+        color: #fccd05;
+      }
+      .bottom-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 300px;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .bottom-content {
+        display: flex;
+        flex-direction: column;
+        margin-left: 70px;
+      }
+      .bottom-logo {
+        color: black;
+        font-size: 30px;
+        padding: 20px 0px;
+      }
+      .bottom-text {
+        color: black;
+        font-size: 21px;
+      }
+      .bottom-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 100px;
+      }
+      .bottom-button div a {
+        text-decoration: none;
+        color: rgb(24, 23, 23);
+        padding: 13px 19px;
+        background-color: #fccd05;
+        font-size: 20px;
+        border-radius: 3px;
+        transition: 200ms background-color ease;
+      }
+
+      .bottom-button div a:hover {
+        background-color: #ffd727;
+      }
+      .footer-above {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 200px;
+        background-color: #fccd05;
+        font-family: Montserrat, sans-serif;
+      }
+      .footer-content {
+        display: flex;
+        margin-left: 70px;
+        align-items: center;
+      }
+      .footer-title {
+        font-size: 35px;
+        color: rgb(41, 41, 41);
+      }
+      .footer-above-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 100px;
+      }
+      .footer-above-button div a {
+        text-decoration: none;
+        color: rgb(24, 24, 24);
+        padding: 13px 18px;
+        font-size: 17px;
+        border: 3px solid rgb(29, 29, 29);
+        transition: 200ms all ease;
+      }
+      .footer-above-button div a:hover {
+        color: #fccd05;
+        background-color: rgb(29, 29, 29);
+      }
+
+      .footer-above-button div:first-child {
+        margin: 0px 30px;
+      }
+      .footer {
+        background-color: rgb(15, 15, 15);
+        font-size: 16px;
+      }
+      .footer-bottom {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-areas:
+          "a a b b"
+          "c d e f"
+          "g h e f"
+          "i j e f";
+
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        margin: 30px 15px;
+        background-color: rgb(15, 15, 15);
+        color: white;
+      }
+      .a {
+        grid-area: a;
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+      .a span {
+        font-size: 29px;
+      }
+      .b {
+        grid-area: b;
+        padding: 10px 20px 10px 20px;
+      }
+      .c {
+        grid-area: c;
+      }
+      .d {
+        grid-area: d;
+      }
+      .e {
+        grid-area: e;
+        display: flex;
+        flex-direction: column;
+      }
+      .e > div {
+        padding: 10px 20px 10px 20px;
+      }
+      .f {
+        grid-area: f;
+        display: flex;
+        flex-direction: column;
+      }
+      .f > div {
+        padding: 10px 20px 10px 20px;
+      }
+      .g {
+        grid-area: g;
+      }
+      .h {
+        grid-area: h;
+      }
+      .i {
+        grid-area: i;
+      }
+      .j {
+        grid-area: j;
+      }
+      .c-name {
+        font-size: 14px;
+      }
+      .menu-toggle {
+        display: none;
+        opacity: 0;
+      }
+      .faq-wrapper {
+        width: 100%;
+        margin-top: 100px;
+        background-color: #f8f5fe;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .faq-intro {
+        font-size: 35px;
+        font-family: Montserrat, sans-serif;
+        color: rgb(119, 0, 255);
+        padding: 20px 20px 20px 85px;
+      }
+      /* faq section*/
+      .faq-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f5fe;
+        margin: 30px 0px 100px 0px;
+      }
+      .faq-section {
+        width: 88%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+      }
+      .faq-block {
+        width: 100%;
+        height: 60px;
+      }
+      .faq-block label {
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+        display: block;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 100%;
+        color: rgb(63, 63, 63);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border: 1px solid rgb(214, 209, 224);
+        transition: 300ms all ease;
+        box-sizing: border-box;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .faq-block label[for="checker01"] {
+        border-radius: 6px 6px 0px 0px;
+      }
+      .faq-block label[for="checker14"] {
+        border-radius: 0px 0px 6px 6px;
+      }
+      .faq-block label div {
+        padding-left: 20px;
+      }
+
+      .faq-block label i {
+        margin-left: auto;
+        margin-right: 20px;
+        transform: scale(1.3, 1.3);
+      }
+
+      .checker {
+        position: absolute;
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+      }
+
+      .faq-ans {
+        background-color: rgb(255, 255, 255);
+        height: 0px;
+        opacity: 0;
+        transition: 350ms height ease, 150ms opacity ease-out;
+        color: rgb(58, 58, 58);
+        visibility: hidden;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .faq-ans div {
+        padding: 30px 40px;
+        font-size: 18px;
+      }
+      .faq-ans div a {
+        color: rgb(119, 0, 255);
+        text-decoration: none;
+      }
+      .faq-ans div span {
+        color: rgb(119, 0, 255);
+      }
+      /* end of faq section*/
+      /* responsive block*/
+      @media (max-width: 800px) {
+        .head-space {
+          display: none;
+          opacity: 0;
+          width: 0px;
+          height: 0px;
+        }
+        .head-nav {
+          width: 100%;
+          position: fixed;
+          display: grid;
+          color: rgb(255, 255, 255);
+          grid-template-areas:
+            "i  j"
+            "k  k";
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 70px auto;
+          z-index: 2;
+        }
+        .head-nav .logo {
+          width: 100%;
+          height: 100%;
+          grid-area: i;
+          font-size: 20px;
+          color: black;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: #ffffff;
+          padding-left: 20px;
+        }
+        .menu-block {
+          opacity: 1;
+          visibility: visible;
+          width: 100%;
+          height: 100%;
+          grid-area: j;
+          background-color: #ffffff;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+        .head-nav .head-right {
+          margin-left: 0px;
+        }
+        .head-right {
+          visibility: hidden;
+          display: none;
+          opacity: 0;
+          margin: 0px;
+          font-size: 3px;
+          height: 100%;
+          background-color: #ffffff;
+          grid-area: k;
+          color: rgb(15, 15, 15);
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: flex-start;
+        }
+        .head-right div {
+          position: relative;
+          padding: 20px 10px;
+          margin: 10px 10px;
+          background-color: rgb(255, 255, 255);
+        }
+        .head-right div a {
+          color: rgb(15, 15, 15);
+          background-color: rgb(255, 255, 255);
+        }
+
+        .nav-company {
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .small-box {
+          position: relative;
+          top: 20px;
+          bottom: 40px;
+          width: calc(100%);
+          display: none;
+          flex-direction: column;
+          background-color: rgb(255, 255, 255);
+          visibility: hidden;
+          overflow: hidden;
+          transition: 270ms all ease-out;
+        }
+
+        .nav-company .small-box a {
+          width: 100%;
+          text-decoration: none;
+          padding: 10px 0px;
+          background-color: rgb(255, 255, 255);
+          overflow: hidden;
+          color: rgb(54, 54, 54);
+        }
+        #company-dropdown {
+          padding: 0px;
+          margin: 0px 0px;
+        }
+        /* hamburger*/
+        .fa-bars {
+          position: relative;
+          color: black;
+          transform: scale(2, 1.5);
+          margin-right: 25px;
+        }
+        .fa-times {
+          position: relative;
+          color: black;
+          transform: scale(1.7, 1.7);
+          margin-right: 25px;
+        }
+        #ham-button {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          margin: 0px;
+          transform: translateY(-100%);
+          opacity: 0;
+          z-index: 10;
+        }
+
+        /* end hamburger*/
+        .intro-text {
+          margin: 15vh 0px 100px 0px;
+          display: grid;
+          grid-template-areas:
+            ".  x x ."
+            ".  x x .";
+          grid-template-rows: auto;
+          grid-template-columns: 1fr 5fr 5fr 1fr;
+          height: 90vh;
+        }
+        .big-text {
+          direction: ltr;
+          font-size: 33px;
+          line-height: 39px;
+        }
+        .button-section {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+        }
+        .button-section a {
+          text-decoration: none;
+          padding: 13px 20px;
+          font-size: 18px;
+          display: block;
+        }
+        .a-btn {
+          margin: 15px 10px;
+        }
+        .l-btn {
+          margin: 15px 10px;
+        }
+        .whatis-section {
+          display: grid;
+          grid-template-rows: 1fr 3fr;
+          grid-template-columns: 100%;
+          width: 100%;
+          height: 1000px;
+        }
+        .whatis-section .whatis-content {
+          margin-left: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+        .whatis-title2 {
+          font-family: Montserrat, sans-serif;
+          font-size: 30px;
+          padding: 10px 0px;
+          color: rgb(119, 0, 255);
+        }
+        .whatis-text {
+          font-family: Montserrat, sans-serif;
+          font-size: 26px;
+          padding: 25px 0px;
+          word-spacing: 4px;
+          color: rgb(119, 0, 255);
+          line-height: 40px;
+        }
+        .card-wrapper {
+          margin-top: 0px;
+        }
+        .who-section {
+          margin-top: 100px;
+          display: grid;
+          grid-template-rows: 4fr 1fr;
+          grid-template-columns: 100%;
+        }
+        .who-section .who-content {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .info1 {
+          display: grid;
+          grid-template-rows: 0.5fr 1fr;
+          grid-template-columns: 100%;
+        }
+        .info-content {
+          margin-left: 20px;
+          margin-right: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+        .info-btn {
+          padding: 0px;
+          margin: 50px auto;
+          font-size: 14px;
+          text-align: center;
+          display: block;
+        }
+        .info-btn a {
+          padding: 10px 20px;
+          text-decoration: none;
+          color: rgb(119, 0, 255);
+          border: 3px solid rgb(119, 0, 255);
+          font-family: Montserrat, sans-serif;
+          display: block;
+        }
+        .card-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .card-block {
+          margin: 20px 22px;
+          height: 460px;
+          width: 300px;
+        }
+        .info2 {
+          display: grid;
+          grid-template-areas: "content2 " "cards ";
+          grid-template-rows: 0.5fr 1fr;
+          grid-template-columns: 100%;
+        }
+        .info-content2 {
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+        #info-content2 {
+          grid-area: content2;
+        }
+        #card-info {
+          grid-area: cards;
+        }
+
+        .slider {
+          display: grid;
+          width: 100%;
+          grid-template-columns: 1fr 4fr 1fr;
+          padding: 20px 0px;
+        }
+
+        .slide-section {
+          padding: 25px;
+        }
+        .bottom-section {
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          height: 500px;
+          grid-template-columns: 100%;
+        }
+        .bottom-content {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .bottom-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 0px;
+        }
+        .footer-above {
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          grid-template-columns: 100%;
+          height: 250px;
+        }
+        .footer-content {
+          display: flex;
+          margin-left: 20px;
+          margin-right: 20px;
+          align-items: center;
+        }
+        .footer-above-button {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-right: 10px;
+          margin-left: 20px;
+        }
+        .footer-above-button div a {
+          text-decoration: none;
+          padding: 5px 10px;
+          font-size: 14px;
+        }
+        .footer-above-button div:first-child {
+          margin: 0px 10px;
+        }
+        /*footer responsive*/
+        .footer-bottom {
+          display: grid;
+          margin: 30px 15px;
+          grid-gap: 5px;
+          grid-template-areas:
+            "a a a a"
+            "b b b b"
+            "e e f f"
+            "e e f f"
+            "c c d d"
+            "g g h h"
+            "i i j j";
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(7, 1fr);
+        }
+        /* end footer responsive*/
+        /*faq-section*/
+        .faq-intro {
+          padding: 0px;
+          margin: 10px auto;
+        }
+
+        .faq-section {
+          width: 94%;
+        }
+        .faq-block {
+          height: 80px;
+        }
+
+        .faq-block label {
+          font-size: 15px;
+        }
+        .faq-block label div {
+          padding-left: 14px;
+        }
+        .faq-block label i {
+          margin-left: auto;
+          margin-right: 10px;
+          transform: scale(1, 1);
+        }
+        .faq-ans div {
+          padding: 10px 20px;
+          font-size: 17px;
+        }
+
+        /* faq-section*/
+      }
+
+      /* end of responsive */
+    </style>
+    <script>
+      function hamburger() {
+        var checkBox = document.getElementById("ham-button");
+        var block = document.getElementById("head-right");
+
+        if (checkBox.checked == true) {
+          block.style.display = "flex";
+          block.style.opacity = 1;
+          block.style.visibility = "visible";
+          document.getElementById("ham-icon").className = "fas fa-times ";
+        } else {
+          block.style.display = "none";
+          block.style.opacity = 0;
+          block.style.visibility = "hidden";
+          document.getElementById("ham-icon").className = "fas fa-bars ";
+        }
+      }
+      $(document).ready(function() {
+        if (window.matchMedia("(max-width: 800px)").matches) {
+          $(".nav-company").click(function() {
+            $(".small-box").css({ visibility: "visible", display: "flex" });
+          });
+        }
+
+        // for slider
+        $(function() {
+          var inWrap = $(".inner-wrapper");
+
+          $(".prev").on("click", function() {
+            inWrap.animate({ left: "0%" }, 300, function() {
+              inWrap.css("left", "-100%");
+
+              $(".slide")
+                .first()
+                .before($(".slide").last());
+            });
+          });
+
+          $(".next").on("click", function() {
+            inWrap.animate({ left: "-200%" }, 300, function() {
+              inWrap.css("left", "-100%");
+
+              $(".slide")
+                .last()
+                .after($(".slide").first());
+            });
+          });
+        });
+
+        //faq-section
+        $(".checker").click(function() {
+          var id = this.id;
+          var x = this.id.substr(-2);
+          var y = "#faq-ans" + x;
+          if ($(this).prop("checked") == true) {
+            $("label[for=" + id + "]").css({
+              background: "rgb(119, 0, 255)",
+              color: "white",
+              border: " 1px solid rgb(119, 0, 255)"
+            });
+
+            $(y).css({
+              height: "auto",
+              opacity: "1",
+              visibility: "visible",
+              border: "1px solid rgb(119, 0, 255)"
+            });
+          } else if ($(this).prop("checked") == false) {
+            $(y).css({
+              height: "0px",
+              opacity: "0",
+              visibility: "hidden",
+              border: "none"
+            });
+            $("label[for=" + id + "]").css({
+              background: "white",
+              color: "rgb(63, 63, 63)",
+              border: "1px solid rgb(214, 209, 224)"
+            });
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head-section">
+        <div class="head-nav">
+          <div class="head-space"></div>
+          <div class="logo">Sourcak</div>
+          <div class="head-space"></div>
+          <div class="menu-block">
+            <i class="fas fa-bars" id="ham-icon">
+              <input
+                type="checkbox"
+                name=""
+                id="ham-button"
+                onclick="hamburger()"
+            /></i>
+          </div>
+
+          <div class="head-right" id="head-right">
+            <div class="nav-company">
+              <div id="company-dropdown">
+                COMPANY<i class="fas fa-angle-down"></i>
+              </div>
+              <div class="small-box">
+                <a href="">Overview</a>
+                <a href="">Global Network</a>
+                <a href="">Business Model</a>
+                <a href="">Product Portfolio</a>
+                <a href="">Team</a>
+                <a href="">Investment</a>
+              </div>
+            </div>
+            <div class="supplier"><a href="">FOR SUPPLIERS</a></div>
+            <div class="sign-in"><a href="">SIGN IN</a></div>
+            <div class="join-now"><a href="">JOIN NOW</a></div>
+          </div>
+          <div class="head-space"></div>
+        </div>
+        <div class="intro-text">
+          <div class="header-text x">
+            <div class="big-text">
+              EARN PROFITS BY INTRODUCING BUYERS SUPPLIERS AND CONSULANTS
+            </div>
+
+            <div class="small-text">
+              Earn profits by helping pre-verified buyers to source from our
+              pre-vetted suppliers
+            </div>
+
+            <div class="button-section">
+              <a href="" class="a-btn"> BECOME A SOURCAK FINDER </a
+              ><a href="" class="l-btn">
+                LEARN MORE
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="whatis-section">
+        <div class="whatis-content">
+          <div class="whatis-title1">WHAT IS SOURCAK</div>
+          <div class="whatis-title2">SOURCAK,</div>
+          <div class="whatis-text">
+            SOURCAK IS A CURATED PLATFORM WHERE PRE-VERIFIED SUPPLIERS CONNECT
+            WITH PRE-VEREFIED BUYERS VIA OUR NETWORK OF INDUSTRY EXPERTS.
+          </div>
+        </div>
+        <!-- 45ded cards-->
+        <div class="under-construct">
+          <div class="card-wrapper">
+            <div class="p">
+              <div class="card-block-45deg">
+                <div class="card-section">
+                  <div class="block">
+                    <div class="block-title">Sourcing opportunity</div>
+                    <div class="block-text">
+                      Source Italian marbles
+                    </div>
+                  </div>
+                  <div class="block">
+                    <div class="block-title">Follow through:</div>
+                    <div class="block-status">
+                      <span>Awaiting bids</span>
+                    </div>
+                  </div>
+
+                  <div class="block" id="last-block">
+                    <div class="block-title">Reward</div>
+                    <div class="block-status">
+                      <div>
+                        USD 2000 or 10% of profit &nbsp sharing whichever is
+                        higher
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="q">
+              <div class="card-block-45deg">
+                <div class="card-section">
+                  <div class="block">
+                    <div class="block-title">Potential Buyer</div>
+                    <div class="block-text">
+                      School furniture for a tender awarded in Rawada
+                    </div>
+                  </div>
+
+                  <div class="block">
+                    <div class="block-title">Follow through:</div>
+                    <div class="block-status">
+                      <span>Success</span>
+                    </div>
+                  </div>
+
+                  <div class="block" id="last-block">
+                    <div class="block-title">Reward</div>
+                    <div class="block-status">
+                      <div>
+                        USD 10,000 or 20% of profit &nbsp sharing whichever is
+                        higher
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="r">
+              <div class="card-block-45deg">
+                <div class="card-section">
+                  <div class="block">
+                    <div class="block-title">Expert consulting opportunity</div>
+                    <div class="block-text">
+                      Setting up a long cut pasta manufacturing factory in
+                      Nigeria
+                    </div>
+                  </div>
+
+                  <div class="block">
+                    <div class="block-title">Follow through:</div>
+                    <div class="block-status">
+                      <span>Consulting complete</span>
+                    </div>
+                  </div>
+
+                  <div class="block" id="last-block">
+                    <div class="block-title">Reward</div>
+                    <div class="block-status">
+                      <div>
+                        USD 120,000 ie. 1% of total project cost of USD 12
+                        million.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="s">
+              <div class="card-block-45deg">
+                <div class="card-section">
+                  <div class="block">
+                    <div class="block-title">Potential Buyer</div>
+                    <div class="block-text">
+                      Walmart wholesale
+                    </div>
+                  </div>
+
+                  <div class="block">
+                    <div class="block-title">Follow through:</div>
+                    <div class="block-status">
+                      <span>Success</span>
+                    </div>
+                  </div>
+
+                  <div class="block" id="last-block">
+                    <div class="block-title">Reward</div>
+                    <div class="block-status">
+                      <div>
+                        USD 9,000 or 25% of profit &nbsp sharing whichever is
+                        higher
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of 45ded cards-->
+      </div>
+      <div class="who-section">
+        <div class="who-content">
+          <div class="who-title1">WHO ARE OUR FINDERS</div>
+          <div class="who-title2">
+            INDUSTRY SPECIALIST WITH SECTORAL EXPERIENCE AND NETWORKS.
+          </div>
+          <div class="who-text">
+            Sourcak Finders and consultants are our business partners who help
+            us scout for buyers or sellers of a product or help us with private
+            label strategy and setting up of projects, of which they have
+            relevant sectorial experience. Finders introduce new leads and
+            business opportunities regularly to the Sourcak team either via
+            attending trade shows or their past networks. Supply side finders
+            keep submitting details of pre-vetted suppliers or verify existing
+            suppliers for us who can produce quality goods and services at
+            competitive prices.
+          </div>
+          <div class="who-text">
+            Some of our finders are stay at home mom or people on a
+            sabbatical/career shift who used to work at marketing consultants,
+            sourcing managers, professors at ivy league schools, consultants at
+            top consultancy firms, lawyers at magic circle law firms and final
+            year students wanting to build a career in trade, representing top
+            1% of their class. The flexibility to work your own hours and the
+            convenience of operating from home is what attracts them often to
+            our platform.
+          </div>
+          <div class="who-text">
+            As our business partners, the specialist share the profits we earn
+            on closing the transaction be it a project export or a procurement
+            opportunity for a tender awarded to a client via our network.
+          </div>
+          <div class="who-text">
+            They add value by doing inspections, finding reasonable prices,
+            fostering good trade relationship and help in closing of the sale.
+          </div>
+        </div>
+        <div class="under-construct2"></div>
+      </div>
+      <div class="map-section">
+        #WORLD MAP
+      </div>
+      <div class="question-block">
+        <div class="qtitle">GLOBAL SOURCAK FINDERS</div>
+        <div class="qtext1">
+          WHAT OPPORTUNITIES EXIST AT SOURCAK FOR FREELANCE FINDERS?
+        </div>
+        <div class="qtext2">
+          No matter who you are, if you are good at something then we have a
+          freelance opportunity for you.
+        </div>
+      </div>
+      <div class="info1">
+        <div class="info-content">
+          <div class="info-no">1</div>
+          <div class="info-title">
+            INTRODUCE PRE VETTED SUPPLIERS TO US AND GET PAID.
+          </div>
+          <div class="info-text1">
+            As a global trade platform we get countless sourcing enquiries. We
+            are constantly looking for pre vetted suppliers who can provide us
+            quality products at market related prices. Our finders identify and
+            vet suppliers they have either worked with in the past or they have
+            scouted for in their local area.
+          </div>
+          <div class="info-text2">
+            We share upto 30% profits with our finders when a successful
+            procurement transaction happens via the supplier introduced by them.
+          </div>
+          <div class="info-btn">
+            <a href="supplier.html">HOW TO CONNECT SOURCAK WITH A SUPPLIER ?</a>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Sourcing opportunity</div>
+                <div class="block-text">Source Italian marbles</div>
+              </div>
+              <div class="block">
+                <div class="block-title">Request for quote</div>
+                <div class="progress-bar1">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div>4/5</div>
+              </div>
+              <div class="block">
+                <div class="block-title">Sourcing status</div>
+                <div class="block-status">
+                  <span>Accepting bids</span>
+                </div>
+              </div>
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <span>Upto USD 1900</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--2nd card of block1-->
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Sourcing opportunity</div>
+                <div class="block-text">
+                  Street lamps for a tender in Zambia
+                </div>
+              </div>
+              <div class="block">
+                <div class="block-title">Request for quote</div>
+                <div class="progress-bar2">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div>3/5</div>
+              </div>
+              <div class="block">
+                <div class="block-title">Sourcing status</div>
+                <div class="block-status">
+                  <span>Accepting bids</span>
+                </div>
+              </div>
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <span>Upto USD 1450</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--add another block here-->
+        </div>
+      </div>
+
+      <div class="info2">
+        <div class="card-info" id="card-info">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Potential Buyer</div>
+                <div class="block-text">Xxxx xxxx xxx</div>
+              </div>
+              <div class="block">
+                <div class="block-title">Request for quote for</div>
+                <div class="block-status">
+                  <span>Parboiled rice IR 36 – 5000 ton &nbsp per month</span>
+                </div>
+              </div>
+              <div class="block">
+                <div class="block-title">Sourcing status</div>
+                <div class="block-status">
+                  <span>Success</span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <span>USD 9,400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--2nd card of block2-->
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Potential Buyers</div>
+                <div class="block-text">Xxxx xxxx xxxx</div>
+              </div>
+              <div class="block">
+                <div class="block-title">Request for quote for</div>
+                <div class="block-status">
+                  <span>
+                    Milk Power – 2000 tons &nbsp per &nbsp month from New
+                    Zealand</span
+                  >
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">Sourcing status</div>
+                <div class="block-status">
+                  <span id="under-progress">Under Progress</span>
+                </div>
+              </div>
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <span>Upto USD 4,900</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--add another block here-->
+        </div>
+        <div class="info-content2" id="info-content2">
+          <div class="info-no">2</div>
+          <div class="info-title">
+            INTRODUCE PRE VETTED BUYERS TO US, GET PAID UPON CONVERSION.
+          </div>
+          <div class="info-text1">
+            Finding market related solutions for buyers is what Sourcak does. We
+            share upto 75% of the commission paid to us for a trade, with our
+            business partners – finders, who introduce potential buyers to us.
+          </div>
+          <div class="info-text2">
+            Finders apply various methods to introduce buyers to us. Finders
+            scout for awardee of large tender to companies they worked with in
+            the past.
+          </div>
+          <div class="info-btn">
+            <a href="buyer.html">HOW TO CONNECT SOURCAK WITH A BUYER ? </a>
+          </div>
+        </div>
+      </div>
+      <div class="info3 info1">
+        <div class="info-content">
+          <div class="info-no">3</div>
+          <div class="info-title">
+            INTRODUCE EXPERTS OR CONSULT WITH US AND GET PAID?
+          </div>
+          <div class="info-text1">
+            Another opportunity with us is to work as a consultant or to
+            introduce us to one. We can offer specific tasks which ranges from
+            entrepreneurs looking to setting up a large factory to people
+            wanting to private label a product. You can also earn a reward by
+            proposing a new category and submitting reports. Project range from
+            a million dollars to a few thousands.
+          </div>
+          <div class="info-text2">
+            When you propose a consultant, who completes a transaction on the
+            platform them we pay you 50% of commission we made of that trade or
+            USD 1000.
+          </div>
+          <div class="info-btn">
+            <a href="">HOW TO BECOME A CONSULTANT WITH US</a>
+          </div>
+        </div>
+
+        <div class="card-info">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Consulting topic</div>
+                <div class="block-text">
+                  Setting up of a state of the art rice mill in Nigeria
+                </div>
+              </div>
+              <div class="block">
+                <div class="block-title">Project Status</div>
+                <div class="block-status">
+                  <span>Project report submitted </span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <span>USD 17,450</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--2nd card of block3-->
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Consulting topic</div>
+                <div class="block-text">
+                  Private label a product - mattress in a box for Sweden
+                </div>
+              </div>
+              <div class="block">
+                <div class="block-title">Project status</div>
+                <div class="block-status">
+                  <span>Complete</span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <span>USD 1,900</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--add another block here-->
+        </div>
+      </div>
+      <div class="slider-section">
+        <div class="slider-heading">Success Stories</div>
+        <div class="slider">
+          <div class="prev">
+            <i class="fas fa-chevron-circle-left fa-3x arrow"></i>
+          </div>
+          <div class="slider-wrapper">
+            <div class="inner-wrapper">
+              <div class="slide">
+                <div class="slide-section">
+                  <div class="slide-title">Supply opportunity</div>
+                  <div class="slide-text">
+                    A company in Africa had been awarded a large tender for
+                    supply of hospital equipment. Mr Y worked in China as an
+                    equipment manufacturer expert. He connected us with a local
+                    supplier who never advertised online and had only sold
+                    products in China. With Y’s we exported over 50 containers
+                    of equipment’s to this buyer at a competitive price.<br />
+                    Mr Y earned USD 4900 as a reward for this introduction and
+                    quality inspection efforts.
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-section">
+                  <div class="slide-title">Sourcing opportunity</div>
+                  <div class="slide-text">
+                    Mr T is an finder in Sourcak who operates in the commodity
+                    space in Benin. He introduced Sourcak to three large buyers
+                    of IR 36 Rice. Sourcak supplies 4500 ton of rice per month
+                    via channel partners. Mr T earns USD 9000 for the
+                    transaction.
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide-section">
+                  <div class="slide-title">Private label strategy</div>
+                  <div class="slide-text">
+                    An entrepreneur in South Africa was looking at private
+                    labeling Red wine for export marketing. A Sourcak finder who
+                    is a wine expert in Napa Valley California and a founder of
+                    another wine brand, helped the entrepreneur in Cape Town. He
+                    has made a lifelong friend in his sector and earned a reward
+                    of USD 1200.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="next">
+            <i class="fas fa-chevron-circle-right fa-3x arrow"></i>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-section">
+        <div class="bottom-content">
+          <div class="bottom-logo">Sourcak</div>
+          <div class="info-title">SOURCAK IS DISRUPTING CROSS BORDER TRADE</div>
+          <div class="bottom-text">
+            Join our SOURCAK Finder program today and expand your global
+            business network
+          </div>
+        </div>
+        <div class="bottom-button">
+          <div><a href="">BECOME A SOURCAK FINDER</a></div>
+        </div>
+      </div>
+      <!--start of faq--->
+      <div class="faq-wrapper">
+        <div class="faq-intro">FAQ</div>
+        <div class="faq-container">
+          <div class="faq-section">
+            <div class="faq-block">
+              <label for="checker01">
+                <div>What is Sourcak?</div>
+                <i class="fas fa-angle-down"></i
+              ></label>
+              <input type="checkbox" id="checker01" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans01">
+              <div>
+                Sourcak connects pre-vetted buyers to pre-vetted sellers via its
+                network of finders, and on the other hand, Sourcak’s consultants
+                also help with private labeling and factory setup process. We
+                mainly focus on 3 domains, i.e., Product Development, Product
+                Sourcing, and Factory Set Up. Our network of finders identify
+                high-quality suppliers who are otherwise difficult to find and
+                buyers from around the world and our consultants help with
+                private labeling and factory set up process.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker02">
+                <div>Who are Sourcak Finders?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker02" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans02">
+              <div>
+                Our finders are professionals with an average experience of 4-5
+                year in their sector. They range from self-employed individuals,
+                ex sourcing managers, large startup founders, ex-consultants of
+                Mckinsey and Bain, product experts, factory set up consultants
+                and in exceptional cases final year students who are in the top
+                1% of their class in ivy league schools.
+                <br /><br />
+                Sourcak finders are the core of our business. We treat them as
+                business partners and add value to their professional life, and
+                they add value to us by sharing valuable pre-vetted connections
+                in different industries. With our current network of 1700
+                finders in over 40 countries, we can operate on a much larger
+                scale than other sourcing platforms. This provides us the
+                ability to provide global sourcing at a fast pace.If you are
+                interested in becoming a Finder with Sourcak, we encourage you
+                to fill out your details <a href="">here</a>.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker03">
+                <div>What work does a Sourcak Finder have to do?</div>
+                <i class="fas fa-angle-down"></i
+              ></label>
+              <input type="checkbox" id="checker03" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans03">
+              <div>
+                A finder associated with Sourcak can add value in one of the
+                following manners:
+                <br />
+                <br />
+                <span>Associate Suppliers with Sourcak</span> <br />
+                Being a global sourcing company, we always look for trustworthy
+                suppliers that can help provide good quality products at the
+                most suitable prices. Sourcak asks their finders to get quotes
+                of different products from their existing pre-vetted suppliers
+                and identify new suppliers for the same.
+                <br />
+                <br />
+                <span>Connect Buyers to Sourcak</span><br />
+                Sourcak finders can also help by connecting us to buyers of
+                different products. Finders will get upto 75% of the commission
+                that is generated from the respective transaction on introducing
+                a particular buyer. Our team will do everything from sourcing,
+                logistics, etc. We merely need you to stay involved to smoothen
+                the process. <br />
+                <br /><span>Sharing Expertise with Sourcak</span><br />
+                Our consultants are experts in a sector who help with private
+                labeling of products and with the factory setup process, with a
+                rich history of over 10 years in that sector. We also invite
+                founders of successful startup to become consultants with us to
+                help others private label products in that category.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker04">
+                <div>Do finders work full-time?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker04" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans04">
+              <div>
+                Working as a Sourcak Finder is a part-time entrepreneurship
+                opportunity that anyone can take up. We reward you for your
+                knowledge and connection. A Sourcak Finder can work from
+                anywhere in the world regardless of their location. We, however,
+                expect our finders to work with the utmost professionalism by
+                submitting high-grade work and respect deadlines.
+              </div>
+            </div>
+
+            <div class="faq-block">
+              <label for="checker05">
+                <div>Will I be qualified to become a finder?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker05" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans05">
+              <div>
+                Usually, people who have 3-4 years of work experience in any
+                industry tend to be qualified to become Sourcak Finders. We make
+                exceptions sometimes for highly motivated people with
+                exceptional achievements. Since our finders are our business
+                partners, many view this as an entrepreneurship opportunity with
+                little risk on your side. Our application process is an informal
+                written conversation where we get to know you. We encourage you
+                to talk about your business networks and experience in sales and
+                sourcing. This will help us determine how much value can we add
+                to your professional life and how well can you assist our
+                clients.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker06">
+                <div>How much can I earn?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker06" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans06">
+              <div>
+                You can earn from Sourcak on the following conversions:
+                <br /><br />
+                <span> Introduce suppliers:</span> Upto 25% of the commission
+                for each successful deal that takes place from the supplier you
+                recommended with our buyers. <br /><br />
+                <span> Introduce buyers:</span> Upto 75% of the total commission
+                on the transaction that takes place between a buyer introduced
+                by you and Sourcak. <br /><br />
+                <span> Introduce New Products: </span> You will also be able to
+                earn by introducing new products to the Sourcak database which
+                are presently not there. For every new product, you can get upto
+                150 dollars when approved and added. <br /><br />
+                <span> Providing Expertise: </span> You can sign up as a
+                consultant who has past experience in setting up of factories or
+                private labeling products or introduce potential clients looking
+                for such services. Upon conversation you earn upto 50% of the
+                total commission.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker07">
+                <div>How will you get paid?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker07" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans07">
+              <div>
+                There are two ways through which Sourcak can pay you for the
+                work done:
+                <br />
+                <br />
+                <ul>
+                  <li>Directly into your bank account via bank transfer.</li>
+                  <li>Into your PayPal account. [Recommended]</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-block">
+              <label for="checker08">
+                <div>How will Sourcak handle my information?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker08" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans08">
+              <div>
+                Sourcak gives utmost importance to your privacy, and every
+                reasonable effort will be taken to not share such information
+                with any third party without your consent, or as is standard
+                commercial practice. Further details can be seen on our privacy
+                policy.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker09">
+                <div>What kinds of buyers can I connect with Sourcak?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker09" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans09">
+              <div>
+                As a Sourcak Finder, you connect us with the buyers you are
+                connected to, with details of products they are looking at
+                sourcing regardless of their location or product category.
+                Opening lines of communication between Sourcak and the buyer,
+                helps both the parties discover new trade opportunities. We have
+                access to rich trade data which has over 1 billion trade
+                records, across the world. Using technology and feet on the
+                ground, we are able to get good terms and quotes from pre-vetted
+                suppliers. You will earn upto 75% commission earned via this
+                trade, by assisting us in the process till the end by
+                negotiating pricing and terms. Most of the other work such as
+                sourcing, product sampling and development, logistics etc will
+                be handled by our team.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker10">
+                <div>
+                  What are the roles of a Finder for connecting suppliers with
+                  Sourcak?
+                </div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker10" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans10">
+              <div>
+                As a Finder for Sourcak, you have to connect a supplier to our
+                network by sharing information about them including their quote
+                of specific items.This networking helps past or potential
+                suppliers explore new trade. For registering a valid supplier
+                with Sourcak, you get upto 25% of the commission of all trades
+                made by that supplier.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker11">
+                <div>How do I find suppliers?</div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker11" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans11">
+              <div>
+                Unless you have worked in procurement before and have past
+                database of suppliers you have worked with, you would need to do
+                an online research. You can contact them and request them for
+                quotes. You can also consider attending one of the many trade
+                shows of a particular product to get this information. You can
+                submit your findings to us in the form of google sheets.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker12">
+                <div>
+                  What kinds of information are usually needed if I work as a
+                  freelance sourcing finder?
+                </div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker12" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans12">
+              <div>
+                You must submit as much information as possible including
+                details of the suppliers, their brochures, quotes which are
+                detailed with terms such as payment terms, logistics terms,
+                quality and other certificates. If possible list of past
+                supplies also assist us in evaluating supplies.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker13">
+                <div>
+                  What kinds of information are usually needed from consulting
+                  jobs?
+                </div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker13" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans13">
+              <div>
+                Our consultants are domain experts with prior experience in
+                setting up factories, with a rich history of over 10 years in
+                that sector. The information required from a Sourcak consultant
+                will revolve around setting up of factories or private labeling
+                products or introducing potential clients looking for such
+                services. Often we post consultancy jobs relating to other areas
+                such as exports, imports, procurement etc.
+              </div>
+            </div>
+            <div class="faq-block">
+              <label for="checker14">
+                <div>
+                  What are the roles of a Consultant after a job is assigned by
+                  Sourcak?
+                </div>
+                <i class="fas fa-angle-down"></i>
+              </label>
+              <input type="checkbox" id="checker14" class="checker" />
+            </div>
+            <div class="faq-ans" id="faq-ans14">
+              <div>
+                Depending on the nature of the job, the expectations can greatly
+                vary. Incase the project involves setting up of a factory then
+                we expect you to submit a project report or draft one after we
+                get an approval from the client. You might be asked to answer a
+                set of questions or consult the client either in person or on
+                telephone mostly in case of product development. We encourage
+                you to fill out detailed information of your past experience in
+                your profile to invite you to relevant consulting opportunity.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end od faq-->
+      <div class="footer-above">
+        <div class="footer-content">
+          <div class="footer-title">NEED MORE INFORMATION?</div>
+        </div>
+        <div class="footer-above-button">
+          <div><a href="">VISIT FAQ</a></div>
+          <div><a href="">ASK US QUESTIONS</a></div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-bottom">
+          <div class="a">
+            <span>Sourcak</span>
+            <br />Simplifies the trade, product development<br />
+            and project set up experience.
+          </div>
+          <div class="b">
+            Questions <br />
+            saurabh@mahabirindustries.com
+          </div>
+          <div class="c c-name">
+            INDIA <br />6th floor, Commercial point office park, 79 Lenin Sarani
+            Kolkata, India
+          </div>
+          <div class="d c-name">
+            ITALY <br />
+            Via Puccini 170 50019 Sesto Fiorentino Fl Italy
+          </div>
+          <div class="e">
+            <div>SOLUTIONS</div>
+            <div>FOR BUYERS</div>
+            <div>FOR SUPPLIERS</div>
+          </div>
+          <div class="f">
+            <div>ABOUT US</div>
+            <div>COMPANY</div>
+            <div>CAREERS</div>
+          </div>
+          <div class="g c-name">
+            SOUTH AFRICA<br />
+            Block A, Regus House, Wedgefield Business park, 17 Muswell Road
+            South, Bryanston 2191, South Africa
+          </div>
+          <div class="h c-name">
+            SPAIN <br />
+            Barbieri 26 Madrid 28004 spain
+          </div>
+          <div class="i c-name">
+            CHINA <br />
+            305A, Floor 3,Global Shoes Building,Houjie Town,Dongguan
+          </div>
+          <div class="j c-name">
+            LONDON <br />
+            71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

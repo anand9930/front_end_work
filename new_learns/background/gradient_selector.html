@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);
+        transition: all 300ms ease-in-out;
+      }
+      .text {
+        color: rgb(39, 39, 39);
+        font-size: 75px;
+        font-family: "Poppins", sans-serif;
+      }
+      .gradient-wrapper {
+        width: 300px;
+        height: 80px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 5px;
+        background-color: rgb(241, 241, 241);
+      }
+      .gradient-wrapper div {
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin: 2px;
+        border: 2px solid rgb(158, 158, 158);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="text">
+        hello there
+      </div>
+      <div class="gradient-wrapper">
+        <div
+          style="background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);"
+        ></div>
+        <div
+          style=" background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);"
+        ></div>
+        <div
+          style="background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%); "
+        ></div>
+        <div
+          style="background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+        "
+        ></div>
+        <div
+          style="background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);"
+        ></div>
+        <div
+          style="background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);"
+        ></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    colors = document.getElementsByClassName("gradient-wrapper")[0].children;
+    wrapper = document.getElementsByClassName("wrapper")[0];
+    for (i = 0; i < colors.length; i++) {
+      color = colors[i];
+      color.addEventListener("click", function(e) {
+        wrapper.style.backgroundImage = e.target.style.backgroundImage;
+      });
+    }
+  </script>
+</html>

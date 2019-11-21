@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>tweenmax</title>
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .wrapper-bk {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 0%;
+        height: 100%;
+        background-color: rgb(253, 183, 198);
+        z-index: -1;
+      }
+      .img-wrapper {
+        width: 90%;
+        height: 0%;
+      }
+      .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="img-wrapper">
+        <img
+          src="https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg"
+        />
+      </div>
+      <div class="wrapper-bk"></div>
+    </div>
+  </body>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+    integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk="
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="app.js"></script>
+</html>

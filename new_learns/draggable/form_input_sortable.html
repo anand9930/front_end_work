@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <style>
+    body,
+    html {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 200vh;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .wrapper .from-wrapper {
+      width: 600px;
+    }
+
+    .drag {
+      display: flex;
+      align-items: center;
+      margin: 20px 0px;
+      background-color: pink;
+      outline: none;
+    }
+
+    .drag svg {
+      fill: rgb(37, 37, 37);
+      padding-right: 10px;
+    }
+
+    .drag svg:active {
+      fill: rgb(223, 27, 27);
+
+    }
+
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper form .drag .input-wrapper label {
+      font-family: sans-serif;
+    }
+
+    form input {
+      outline: none;
+      border: 1.8px solid blue;
+      padding: 10px 10px;
+      font-size: 22px;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    .draggable-source--is-dragging {
+      visibility: hidden;
+    }
+
+    .draggable-mirror svg {
+      fill: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="from-wrapper">
+      <form action="">
+        <div class="drag">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 26 26">
+            <path
+              d="M 7 3 C 4.800781 3 3 4.800781 3 7 L 3 19 C 3 21.199219 4.800781 23 7 23 L 19 23 C 21.199219 23 23 21.199219 23 19 L 23 7 C 23 4.800781 21.199219 3 19 3 Z M 9 7 L 11 7 L 11 9 L 15 9 L 15 7 L 17 7 L 17 9 L 19 9 L 19 11 L 17 11 L 17 15 L 19 15 L 19 17 L 17 17 L 17 19 L 15 19 L 15 17 L 11 17 L 11 19 L 9 19 L 9 17 L 7 17 L 7 15 L 9 15 L 9 11 L 7 11 L 7 9 L 9 9 Z M 11 11 L 11 15 L 15 15 L 15 11 Z">
+            </path>
+          </svg>
+          <div class="input-wrapper">
+            <label for="">Name</label>
+            <input type="text" />
+          </div>
+        </div>
+
+        <div class="drag">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 26 26">
+            <path
+              d="M 7 3 C 4.800781 3 3 4.800781 3 7 L 3 19 C 3 21.199219 4.800781 23 7 23 L 19 23 C 21.199219 23 23 21.199219 23 19 L 23 7 C 23 4.800781 21.199219 3 19 3 Z M 9 7 L 11 7 L 11 9 L 15 9 L 15 7 L 17 7 L 17 9 L 19 9 L 19 11 L 17 11 L 17 15 L 19 15 L 19 17 L 17 17 L 17 19 L 15 19 L 15 17 L 11 17 L 11 19 L 9 19 L 9 17 L 7 17 L 7 15 L 9 15 L 9 11 L 7 11 L 7 9 L 9 9 Z M 11 11 L 11 15 L 15 15 L 15 11 Z">
+            </path>
+          </svg>
+          <div class="input-wrapper">
+            <label for="">Email</label>
+            <input type="email" name="" id="" />
+          </div>
+        </div>
+
+        <div class="drag">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 26 26">
+            <path
+              d="M 7 3 C 4.800781 3 3 4.800781 3 7 L 3 19 C 3 21.199219 4.800781 23 7 23 L 19 23 C 21.199219 23 23 21.199219 23 19 L 23 7 C 23 4.800781 21.199219 3 19 3 Z M 9 7 L 11 7 L 11 9 L 15 9 L 15 7 L 17 7 L 17 9 L 19 9 L 19 11 L 17 11 L 17 15 L 19 15 L 19 17 L 17 17 L 17 19 L 15 19 L 15 17 L 11 17 L 11 19 L 9 19 L 9 17 L 7 17 L 7 15 L 9 15 L 9 11 L 7 11 L 7 9 L 9 9 Z M 11 11 L 11 15 L 15 15 L 15 11 Z">
+            </path>
+          </svg>
+          <div class="input-wrapper">
+            <label for="">Password</label>
+            <input type="password" name="" id="" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.js"></script>
+<script>
+  const sortable = new Draggable.Sortable(document.querySelector("form"), {
+    draggable: ".drag",
+    handle: "svg",
+
+  });
+
+  sortable.on("sortable:start", () => {
+    console.log("sortable:start");
+  });
+  sortable.on("sortable:sort", () => {
+    console.log("sortable:sort");
+  });
+  sortable.on("sortable:sorted", () => {
+    console.log("sortable:sorted");
+  });
+  sortable.on("sortable:stop", () => {
+    console.log("sortable:stop");
+  });
+</script>
+
+</html>

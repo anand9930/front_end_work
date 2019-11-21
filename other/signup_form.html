@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Signup form</title>
+    <script>
+      function myfunc() {
+        document.getElementById("FirstName").inputMode = "focus";
+      }
+    </script>
+    <style>
+      body {
+        margin: 0px;
+        font-family: monospace;
+      }
+      .container {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+      }
+      .pic {
+        margin: 0px;
+        position: relative;
+        width: 50vw;
+        height: 100vh;
+        background: url("images/headphone.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        clip-path: polygon(0 0, 100% 0, 93% 100%, 0% 100%);
+        flex-shrink: 3;
+      }
+      .signupform {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        flex-shrink: 1;
+        background-color: rgb(255, 255, 255);
+        height: 70vh;
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 25vh;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        border: 2px solid rgb(224, 224, 224);
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 14px 14px;
+        outline: none;
+        transition: 180ms border ease-in;
+        margin-top: 40px;
+        width: 300px;
+        font-size: 17px;
+      }
+
+      input:focus {
+        border: 2px solid rgb(0, 38, 251);
+      }
+      label {
+        position: absolute;
+        top: 61px;
+        left: 20px;
+        font-size: 15px;
+        transition: all 180ms ease;
+        background-color: rgb(255, 255, 255);
+        padding: 0px 5px;
+        color: rgb(170, 170, 170);
+      }
+
+      input:focus ~ label,
+      input:valid ~ label {
+        position: absolute;
+        top: 35px;
+        transform: scale(0.8, 0.8);
+        left: 10px;
+        color: rgb(0, 38, 251);
+      }
+
+      fieldset {
+        position: relative;
+        border: none;
+      }
+
+      .submiter {
+        margin: 30px auto;
+        width: 200px;
+        height: 60px;
+        padding: 14px;
+        box-sizing: border-box;
+        outline: none;
+        background-color: rgb(183, 245, 193);
+        border: 3px solid rgb(0, 38, 251);
+        letter-spacing: 4px;
+        font-family: monospace;
+        font-size: 18px;
+        transition: 200ms all ease-in;
+      }
+      .submiter:hover {
+        background-color: rgb(35, 255, 163);
+        border: 3px solid rgb(0, 117, 251);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pic"></div>
+      <form class="signupform" action="">
+        <fieldset>
+          <input type="text" name="First Name" id="firstname" required />
+          <label for="firstname">First Name</label>
+        </fieldset>
+        <fieldset>
+          <input type="email" name="E-mail" id="e-mail" required />
+          <label for="e-mail">E-mail</label>
+        </fieldset>
+        <fieldset>
+          <input type="password" name="Password" id="password" required />
+          <label for="password">Password</label>
+        </fieldset>
+        <button type="submit" class="submiter">Submit-></button>
+      </form>
+    </div>
+  </body>
+</html>

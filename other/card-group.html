@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>card-group</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .container {
+        width: 100%;
+        height: 130vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: azure;
+      }
+      .card-wrapper {
+        transform: rotate(0deg);
+        width: 70%;
+        height: 90%;
+        background-color: rgb(240, 240, 240);
+        display: grid;
+        grid-template-areas:
+          ".  b ."
+          ".  b c"
+          "a  b c"
+          "a  d c"
+          "a  d ."
+          ".  d .";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+      }
+      .a {
+        grid-area: a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .b {
+        grid-area: b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .c {
+        grid-area: c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .d {
+        grid-area: d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-block {
+        width: 290px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        font-family: "Varela Round", sans-serif;
+      }
+      .card-section {
+        background-color: rgb(255, 255, 255);
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+      }
+      .block {
+        border-bottom: 2px solid rgb(240, 240, 240);
+        color: #acacac;
+      }
+      .block-title {
+        padding: 20px 0px 10px 0px;
+        font-size: 14px;
+      }
+      .block-text {
+        padding: 10px 0px 20px 0px;
+        font-size: 17px;
+        color: #1900ff;
+        font-family: Montserrat, sans-serif;
+      }
+      .progress-bar {
+        display: flex;
+        padding: 10px 0px 20px 0px;
+      }
+      .progress-bar div {
+        width: 35px;
+        height: 6px;
+        background-color: #4dc08c;
+        margin: 0px 4px;
+      }
+      .block-status {
+        padding: 10px 0px 20px 0px;
+      }
+      .block-status div {
+        padding: 5px 5px;
+        background-color: #d0f3e3;
+        border-radius: 4px;
+        color: #4dc08c;
+        font-family: "Varela Round", sans-serif;
+      }
+      .block-status span {
+        padding: 5px 5px;
+        background-color: #d0f3e3;
+        border-radius: 4px;
+        color: #4dc08c;
+        font-family: "Varela Round", sans-serif;
+      }
+
+      #last-block {
+        border-bottom: none;
+        padding: 5px 0px;
+      }
+      .block-status #under-progress {
+        background-color: #fdcbb7;
+        color: #f87f7a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-wrapper">
+        <div class="a">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Sourcing opportunity</div>
+                <div class="block-text">
+                  Source Italian marbles
+                </div>
+              </div>
+              <div class="block">
+                <div class="block-title">Follow through:</div>
+                <div class="block-status">
+                  <span>Awaiting bids</span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <div>
+                    USD 2000 or 10% of profit &nbsp sharing whichever is higher
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="b">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Potential Buyer</div>
+                <div class="block-text">
+                  School furniture for a tender awarded in Rawada
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">Follow through:</div>
+                <div class="block-status">
+                  <span>Success</span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <div>
+                    USD 10,000 or 20% of profit &nbsp sharing whichever is
+                    higher
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Expert consulting opportunity</div>
+                <div class="block-text">
+                  Setting up a long cut pasta manufacturing factory in Nigeria
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">Follow through:</div>
+                <div class="block-status">
+                  <span>Consulting complete</span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <div>
+                    USD 120,000 ie. 1% of total project cost of USD 12 million.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d">
+          <div class="card-block">
+            <div class="card-section">
+              <div class="block">
+                <div class="block-title">Potential Buyer</div>
+                <div class="block-text">
+                  Walmart wholesale
+                </div>
+              </div>
+
+              <div class="block">
+                <div class="block-title">Follow through:</div>
+                <div class="block-status">
+                  <span>Success</span>
+                </div>
+              </div>
+
+              <div class="block" id="last-block">
+                <div class="block-title">Reward</div>
+                <div class="block-status">
+                  <div>
+                    USD 9,000 or 25% of profit &nbsp sharing whichever is higher
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

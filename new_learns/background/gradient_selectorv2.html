@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        width: 100%;
+      }
+      .wrapper {
+        position: relative;
+        width: 35%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrapper-right {
+        width: 65%;
+        display: flex;
+        background-color: rgb(243, 243, 243);
+      }
+      .wrapper-bk1 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);
+        transition: all 190ms ease-in-out;
+        z-index: -1;
+      }
+
+      .wrapper-bk2 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+      .text {
+        color: rgb(39, 39, 39);
+        font-size: 75px;
+        font-family: "Poppins", sans-serif;
+      }
+      .gradient-wrapper {
+        width: 300px;
+        height: 80px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 5px;
+        background-color: rgb(241, 241, 241);
+      }
+      .gradient-wrapper div {
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin: 2px;
+        border: 2px solid rgb(158, 158, 158);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="wrapper-bk1"></div>
+      <div class="wrapper-bk2"></div>
+      <div class="text">
+        hello there
+      </div>
+      <div class="gradient-wrapper">
+        <div
+          style="background-image: linear-gradient(90deg, #fee140 0%, #fa709a 100%);"
+        ></div>
+        <div
+          style=" background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);"
+        ></div>
+        <div
+          style="background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%); "
+        ></div>
+        <div
+          style="background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+        "
+        ></div>
+        <div
+          style="background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);"
+        ></div>
+        <div
+          style="background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);"
+        ></div>
+      </div>
+    </div>
+    <div class="wrapper-right"></div>
+  </body>
+
+  <script>
+    colors = document.getElementsByClassName("gradient-wrapper")[0].children;
+    wrapper1 = document.getElementsByClassName("wrapper-bk1")[0];
+    wrapper2 = document.getElementsByClassName("wrapper-bk2")[0];
+    var flag = true;
+    for (i = 0; i < colors.length; i++) {
+      color = colors[i];
+      color.addEventListener("click", function(e) {
+        if (flag) {
+          wrapper2.style.backgroundImage = e.target.style.backgroundImage;
+          wrapper1.style.opacity = 0;
+          flag = false;
+        } else {
+          wrapper1.style.backgroundImage = e.target.style.backgroundImage;
+          wrapper1.style.opacity = 1;
+          flag = true;
+        }
+      });
+    }
+  </script>
+</html>

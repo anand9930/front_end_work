@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>drop-down</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        padding: 0px;
+        margin: 0px;
+        font-family: "Roboto", sans-serif;
+      }
+      .wrapper {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(226, 226, 226);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 250px;
+        height: 50px;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        border-radius: 5px 5px 0px 0px;
+      }
+      .box:hover .small-box {
+        visibility: visible;
+        transform: translateY(-20px);
+      }
+      .fas {
+        padding: 10px;
+        color: rgb(255, 255, 255);
+      }
+      .small-box {
+        position: absolute;
+        top: calc(100% + 20px);
+        margin: 0px auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: blueviolet;
+        overflow: hidden;
+        color: black;
+        border-radius: 0px 0px 4px 4px;
+        visibility: hidden;
+        transition: 170ms all ease-out;
+      }
+      .small-box a {
+        text-decoration: none;
+        padding: 14px calc(50% - 4px);
+        background-color: rgb(255, 255, 255);
+        overflow: hidden;
+        color: black;
+      }
+      a:hover {
+        background-color: rgb(248, 248, 248);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">
+        <i class="fas fa-caret-down fa-2x"></i>
+        <div class="small-box">
+          <a href="">a</a>
+          <a href="">avzv</a>
+          <a href="">bvd</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

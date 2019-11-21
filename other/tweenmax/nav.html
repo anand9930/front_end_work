@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nav</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Niramit&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(22, 22, 22);
+      }
+      .nav {
+        width: 100%;
+        height: 90px;
+        background-color: rgb(252, 216, 17);
+        display: flex;
+        font-family: "Niramit", sans-serif;
+      }
+      .nav .left {
+        flex-grow: 1;
+        flex-shrink: 3;
+        flex-basis: 1;
+        display: flex;
+        align-items: center;
+      }
+      .nav .left .logo {
+        color: rgb(12, 12, 12);
+        font-size: 20px;
+        margin-left: 10%;
+      }
+      .nav .right {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 1;
+        margin-right: 6%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .nav .right a {
+        position: relative;
+        font-family: "Niramit", sans-serif;
+        color: rgb(17, 17, 17);
+        font-size: 20px;
+        text-decoration: none;
+        padding: 0px 5px;
+      }
+      .nav .right a img {
+        position: absolute;
+        top: 50%;
+        margin: 0px auto;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: visibility 140ms ease, opacity 140ms ease,
+          transform 180ms ease-in-out;
+      }
+      .nav .right a:hover > img {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="nav">
+        <div class="left">
+          <div class="logo">logo</div>
+        </div>
+        <div class="right">
+          <a href="#"
+            >about
+            <img src="wave.png" style="height:50px ;" alt="" srcset="" />
+          </a>
+          <a href="#"
+            >work <img src="wave.png" style="height:50px ;" alt="" srcset=""
+          /></a>
+          <a href="#"
+            >blog <img src="wave.png" style="height:50px ;" alt="" srcset=""
+          /></a>
+          <a href="#"
+            >contact <img src="wave.png" style="height:50px ;" alt="" srcset=""
+          /></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

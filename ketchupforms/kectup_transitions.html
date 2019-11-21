@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Page transitins</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:600i&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: 1fr;
+        width: 100%;
+        height: 100vh;
+      }
+      .box-container {
+        position: relative;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .left {
+        background-color: rgb(81, 33, 255);
+      }
+      #box1 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(231, 225, 255);
+        color: rgb(34, 1, 65);
+        /* transition: 250ms all ease-in-out;*/
+        transform: translateY(0%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        font-size: 30px;
+        font-weight: 600;
+      }
+      #box2 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(231, 225, 255);
+        transform: translateY(100%);
+        /* transition: 250ms all ease-in-out;*/
+        color: rgb(34, 1, 65);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        font-size: 30px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <script></script>
+  <body>
+    <div class="wrapper">
+      <div class="left"></div>
+      <div class="box-container">
+        <div id="box1" onclick="myfunc()">
+          which one do you like the most
+          <br />
+          which one
+        </div>
+        <div id="box2">
+          kinda ok
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function myfunc() {
+      // document.getElementById("box1").style.transform = "translateY(-100%)";
+      // document.getElementById("box2").style.transform = "translateY(-0%)";
+    }
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+    integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk="
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    function anime() {
+      box1 = document.getElementById("box1");
+      box2 = document.getElementById("box2");
+
+      const t = new TimelineMax();
+      t.to(box1, 0.5, {
+        transform: "translateY(-100%)",
+        ease: Power2.easeInOut
+      }).to(
+        box2,
+        0.5,
+        {
+          transform: "translateY(-0%)",
+          ease: Power2.easeInOut
+        },
+        "-=0.5"
+      );
+    }
+
+    setTimeout(anime, 2000);
+  </script>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-44/svg_extend.js"></script>
+    <style>
+      * {
+        font-family: "Helvetica Neue", Arial;
+        color: #636363;
+      }
+
+      @-moz-keyframes colorFade {
+        from {
+          color: #404040;
+        }
+        to {
+          color: #cbcbcb;
+        }
+      }
+      @-webkit-keyframes colorFade {
+        from {
+          color: #404040;
+        }
+        to {
+          color: #cbcbcb;
+        }
+      }
+      @keyframes colorFade {
+        from {
+          color: #404040;
+        }
+        to {
+          color: #cbcbcb;
+        }
+      }
+      .container {
+        margin: 200px auto 0;
+        width: 280px;
+        border: 3px solid #cbcbcb;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        padding: 15px;
+        overflow: hidden;
+        -moz-transition: border 0.3s ease;
+        -o-transition: border 0.3s ease;
+        -webkit-transition: border 0.3s ease;
+        transition: border 0.3s ease;
+        backface-visibility: hidden;
+      }
+      .container > span {
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: bold;
+        color: #cbcbcb;
+        padding: 0 5px;
+        -moz-transition: color 0.3s ease;
+        -o-transition: color 0.3s ease;
+        -webkit-transition: color 0.3s ease;
+        transition: color 0.3s ease;
+      }
+      .container > span.fade {
+        -webkit-animation: colorFade 0.6s 0s ease both;
+        -moz-animation: colorFade 0.6s 0s ease both;
+        -ms-animation: colorFade 0.6s 0s ease both;
+        -o-animation: colorFade 0.6s 0s ease both;
+        animation: colorFade 0.6s 0s ease both;
+      }
+      .container.hover {
+        border-color: #b2b2b2;
+        -moz-box-shadow: 0 0 14px 0 #efefef;
+        -webkit-box-shadow: 0 0 14px 0 #efefef;
+        box-shadow: 0 0 14px 0 #efefef;
+      }
+      .container.hover > span {
+        color: #b2b2b2;
+      }
+      .container.open ul {
+        height: 100px;
+        opacity: 1;
+      }
+      .container .close {
+        float: right;
+      }
+      .container ul {
+        display: none;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        font-weight: 200;
+        width: 100%;
+        margin-top: 10px;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        padding: 10px 5px 0;
+        margin-top: 15px;
+      }
+      .container ul a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #cbcbcb;
+        font-weight: bold;
+        -moz-transition: color 0.3s ease;
+        -o-transition: color 0.3s ease;
+        -webkit-transition: color 0.3s ease;
+        transition: color 0.3s ease;
+      }
+      .container ul a:hover {
+        color: #636363;
+      }
+      .container ul a.active {
+        color: #636363;
+      }
+      .container ul li {
+        padding: 8px 0;
+      }
+
+      .close {
+        fill: #cbcbcb;
+        position: relative;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .close path {
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .close:hover path {
+        fill: #404040;
+      }
+      .close.active {
+        -moz-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+      }
+      .close.active path {
+        fill: #404040;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg
+        version="1.1"
+        class="close"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="32px"
+        viewBox="0 0 42 42"
+        enable-background="new 0 0 42 42"
+        xml:space="preserve"
+      >
+        <path
+          class="path one"
+          fill="#cbcbcb"
+          d="M42,21L42,21c0,1.1-0.9,2-2,2H2c-1.1,0-2-0.9-2-2v0c0-1.1,0.9-2,2-2H40C41.1,19,42,19.9,42,21z"
+          cx="0"
+          cy="0"
+        />
+        <path
+          class="path two"
+          fill="#cbcbcb"
+          d="M21,42L21,42c-1.1,0-2-0.9-2-2V2c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2V40C23,41.1,22.1,42,21,42z"
+          cx="10"
+          cy="10"
+        />
+      </svg>
+      <span>Select a value</span>
+      <ul class="list">
+        <li><a href="#">A default value</a></li>
+        <li><a href="#">Another one</a></li>
+        <li><a href="#">Just one more</a></li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    // Note:
+    // There is a file named svg_extend.js which is loaded here.
+    // It allows us to user add/remove/has class which SVG's
+    // don't have out of the box.
+
+    // Grab our elements
+    // so we can use them below
+    var closeIcon = document.querySelectorAll("svg.close"),
+      $container = $(".container"),
+      $list = $container.find("ul"),
+      $links = $container.find("a"),
+      $text = $container.find("span");
+
+    // When the '+' icon is clicked...
+    $(closeIcon).on("click", function() {
+      // Add class to rotate icon to an 'x'
+      this.toggleClass("active");
+      // Toggle the list
+      $list.toggle();
+    });
+
+    // When the icon is hovered, add
+    // a class to it's parent so we can style it
+    $(closeIcon).hover(
+      function() {
+        $container.addClass("hover");
+      },
+      function() {
+        $container.removeClass("hover");
+      }
+    );
+
+    $links.on("click", function() {
+      $links.removeClass("active");
+
+      $(this).addClass("active");
+      $text.text($(this).text()).addClass("fade");
+
+      setTimeout(function() {
+        $text.removeClass("fade");
+      }, 800);
+
+      $list.toggle();
+      closeIcon.toggleClass("active");
+    });
+  </script>
+</html>

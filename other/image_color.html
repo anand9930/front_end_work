@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700"
+      rel="stylesheet"
+    />
+
+    <title>image_color</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-color: rgb(243, 243, 243);
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(243, 243, 243);
+      }
+      .box_image {
+        background: linear-gradient(
+            rgba(117, 5, 216, 0.8),
+            rgba(117, 5, 216, 0.8)
+          ),
+          url("images/girl2.jpg"), no-repeat;
+        width: 300px;
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 60px;
+      }
+      .box_image2 {
+        background: linear-gradient(
+            rgba(82, 8, 255, 0.7),
+            rgba(82, 8, 255, 0.7)
+          ),
+          url("images/holi.jpg"), no-repeat;
+        width: 300px;
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 60px;
+      }
+      .title {
+        font-family: Montserrat, sans-serif;
+        font-size: 25px;
+        color: rgb(4, 0, 255);
+        font-weight: 700;
+        letter-spacing: 4px;
+        background-color: white;
+        padding: 8px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box_image">
+        <div class="title">
+          #GIRL POWER
+        </div>
+      </div>
+
+      <div class="box_image2">
+        <div class="title">
+          #COLORFULL
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

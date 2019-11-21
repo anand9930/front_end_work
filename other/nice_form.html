@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+    <style>
+   
+    .form_wrapper{
+        background-color: rgb(247, 247, 247);
+        position: relative;
+        margin: auto;
+        width: 400px;
+        height:400px ;
+        top:100px;
+        display:flex;
+        flex-direction: column;
+        border-radius:17px 17px 17px 17px;
+        border: none;
+        
+    }    
+.submiter{
+ 
+    margin-top: auto;
+    height: 15%;
+    border-radius:0px 0px 17px 17px;
+    border: none;
+    font-size:30px;
+    background-color: #287AE6;
+    color: white;
+    font-family: 'Roboto';
+    letter-spacing: 3px;
+    outline: none; 
+ 
+}
+
+.first_name{
+    margin-top:50px ;
+    width:90% ;
+    align-self: center;
+    height:10% ;
+  border: none;
+ 
+  
+}
+input[type=text],input[type=email],input[type=password] {
+	border:2px solid gray;
+	box-sizing: border-box;
+	padding: 20px 20px;
+    border-radius:4px; 
+    outline: none;
+    transition:260ms border ease-in;
+}
+input:focus{
+    border: 2px solid rgb(126, 7, 224);
+}
+
+::placeholder {
+  color: rgb(190, 190, 190);
+
+  font-family: 'Open Sans', sans-serif;
+  opacity: 1; 
+  font-size: 15px;
+ 
+}
+
+.email_address{
+    margin-top:50px ;
+    width:90% ;
+    align-self: center;
+    height:10% ;
+    border: none;
+}
+.password{
+    margin-top:50px ;
+    width:90% ;
+    align-self: center;
+    height:10% ;
+    border: none; 
+}
+
+    </style>
+</head>
+<body>
+        <form action="" class="form_wrapper">
+
+            <input type="text" placeholder="First Name" class="first_name">
+            <input type="email" placeholder="E-mail address" class="email_address">
+            <input type="password" placeholder="Password" class="password">
+            <input type="submit" class="submiter">
+        </form>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .wrapper {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(32, 32, 32);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .calender-wrapper {
+        width: 700px;
+        height: 500px;
+        background-color: rgb(236, 236, 236);
+        display: flex;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .final-date-wrapper {
+        width: 130px;
+        height: 100%;
+        background-color: rgb(36, 49, 238);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input {
+        outline: none;
+        border: none;
+        box-sizing: border-box;
+        width: 100%;
+        font-family: sans-serif;
+        color: rgb(238, 238, 238);
+        text-align: center;
+        background-color: transparent;
+        font-family: "Poppins", sans-serif;
+      }
+      #day-input {
+        font-size: 80px;
+        padding: 0px;
+      }
+      #month-input {
+        font-size: 35px;
+      }
+      #year-input {
+        font-size: 30px;
+      }
+
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+      }
+      .select-date-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 570px;
+        height: 100%;
+      }
+      .day-wrapper {
+        background-color: rgb(240, 240, 240);
+        padding: 20px 6px 0px 6px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        font-family: sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .day-wrapper div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .day-wrapper div span {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        transition: background-color 170ms ease-in-out;
+        color: rgb(44, 44, 44);
+      }
+      .day-wrapper div span:hover {
+        background-color: rgb(186, 197, 241);
+      }
+      .month-wrapper {
+        padding: 20px 6px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(36, 49, 238);
+        font-family: sans-serif;
+      }
+      .month-wrapper div {
+        cursor: pointer;
+        padding: 4px 7px;
+        box-sizing: border-box;
+        background-color: rgb(202, 206, 255);
+        border-radius: 13px;
+        transition: background-color 170ms ease-in-out, color 170ms ease-in-out;
+      }
+      .year-nav-wrapper {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-self: center;
+        justify-content: flex-end;
+      }
+
+      .year-nav-wrapper div {
+        cursor: pointer;
+        display: flex;
+        align-self: center;
+      }
+      .year-nav-wrapper div:first-of-type {
+        margin-right: 12px;
+      }
+      .year-nav-wrapper div:last-of-type {
+        margin-right: 50px;
+      }
+      .year-nav-wrapper div svg {
+        border-radius: 50%;
+        background-color: rgb(219, 219, 219);
+      }
+      .year-wrapper {
+        padding: 10px 6px 0px 6px;
+        box-sizing: border-box;
+        height: 135px;
+        background-color: rgb(236, 236, 236);
+        display: grid;
+        grid-gap: 14px 0px;
+        grid-template-columns: repeat(5, 1fr);
+        overflow-y: scroll;
+        /* background-color: rgb(236, 129, 28); */
+      }
+      .year-wrapper div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-weight: 600;
+        font-size: 17px;
+        /* background-color: rgb(64, 61, 247); */
+      }
+      .year-wrapper div span {
+        cursor: pointer;
+        padding: 4px 7px;
+        border-radius: 15px;
+        background-color: rgb(219, 219, 219);
+        box-sizing: border-box;
+        color: rgb(42, 42, 42);
+        transition: background-color 170ms ease-in-out, color 170ms ease-in-out;
+      }
+      .button-wrapper {
+        width: 100%;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .button-wrapper button {
+        outline: none;
+        margin-right: 30px;
+        border: none;
+        border-radius: 7px;
+        font-weight: 600;
+        padding: 5.5px 22px;
+        font-size: 22px;
+        background-color: rgb(184, 191, 255);
+        color: rgb(6, 21, 228);
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="calender-wrapper">
+        <div class="final-date-wrapper">
+          <input type="number" name="" value="25" id="day-input" />
+          <input type="text" value="May" name="" id="month-input" />
+          <input type="number" name="" value="1999" id="year-input" />
+        </div>
+        <div class="select-date-wrapper">
+          <div class="day-wrapper">
+            <div><span>1</span></div>
+            <div><span>2</span></div>
+            <div><span>3</span></div>
+            <div><span>4</span></div>
+            <div><span>5</span></div>
+            <div><span>6</span></div>
+            <div><span>7</span></div>
+            <div><span>8</span></div>
+            <div><span>9</span></div>
+            <div><span>10</span></div>
+            <div><span>11</span></div>
+            <div><span>12</span></div>
+            <div><span>13</span></div>
+            <div><span>14</span></div>
+            <div><span>15</span></div>
+            <div><span>16</span></div>
+            <div><span>17</span></div>
+            <div><span>18</span></div>
+            <div><span>19</span></div>
+            <div><span>20</span></div>
+            <div><span>21</span></div>
+            <div><span>22</span></div>
+            <div><span>23</span></div>
+            <div><span>24</span></div>
+            <div><span>25</span></div>
+            <div><span>26</span></div>
+            <div><span>27</span></div>
+            <div><span>28</span></div>
+            <div><span>29</span></div>
+            <div><span>30</span></div>
+            <div><span>31</span></div>
+          </div>
+          <div class="month-wrapper">
+            <div>Jan</div>
+            <div>Feb</div>
+            <div>Mar</div>
+            <div>Apr</div>
+            <div>May</div>
+            <div>Jun</div>
+            <div>Jul</div>
+            <div>Aug</div>
+            <div>Sep</div>
+            <div>Oct</div>
+            <div>Nov</div>
+            <div>Dec</div>
+          </div>
+          <div class="year-nav-wrapper">
+            <div id="up-year">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path fill="none" d="M0 0h24v24H0V0z" />
+                <path
+                  d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"
+                />
+              </svg>
+            </div>
+            <div id="down-year">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path fill="none" d="M0 0h24v24H0V0z" />
+                <path
+                  d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="year-wrapper">
+            <div><span>2019</span></div>
+            <div><span>2018</span></div>
+            <div><span>2017</span></div>
+            <div><span>2016</span></div>
+            <div><span>2015</span></div>
+            <div><span>2014</span></div>
+            <div><span>2013</span></div>
+            <div><span>2012</span></div>
+            <div><span>2011</span></div>
+            <div><span>2010</span></div>
+            <div><span>2009</span></div>
+            <div><span>2008</span></div>
+            <div><span>2007</span></div>
+            <div><span>2006</span></div>
+            <div><span>2005</span></div>
+            <div><span>2004</span></div>
+            <div><span>2003</span></div>
+            <div><span>2002</span></div>
+            <div><span>2001</span></div>
+            <div><span>2000</span></div>
+            <div><span>1999</span></div>
+            <div><span>1998</span></div>
+            <div><span>1997</span></div>
+            <div><span>1996</span></div>
+            <div><span>1995</span></div>
+            <div><span>1994</span></div>
+            <div><span>1993</span></div>
+            <div><span>1992</span></div>
+            <div><span>1991</span></div>
+            <div><span>1990</span></div>
+            <div><span>1989</span></div>
+            <div><span>1988</span></div>
+            <div><span>1987</span></div>
+            <div><span>1986</span></div>
+            <div><span>1985</span></div>
+            <div><span>1984</span></div>
+            <div><span>1983</span></div>
+            <div><span>1982</span></div>
+            <div><span>1981</span></div>
+            <div><span>1980</span></div>
+            <div><span>1979</span></div>
+            <div><span>1978</span></div>
+            <div><span>1977</span></div>
+            <div><span>1976</span></div>
+            <div><span>2018</span></div>
+            <div><span>2017</span></div>
+            <div><span>2016</span></div>
+            <div><span>2015</span></div>
+            <div><span>2014</span></div>
+            <div><span>2013</span></div>
+            <div><span>2012</span></div>
+            <div><span>2011</span></div>
+            <div><span>2010</span></div>
+            <div><span>2009</span></div>
+            <div><span>2008</span></div>
+            <div><span>2007</span></div>
+            <div><span>2006</span></div>
+            <div><span>2005</span></div>
+            <div><span>2004</span></div>
+            <div><span>2003</span></div>
+            <div><span>2002</span></div>
+            <div><span>2001</span></div>
+            <div><span>2000</span></div>
+            <div><span>1999</span></div>
+            <div><span>1998</span></div>
+            <div><span>1997</span></div>
+            <div><span>1996</span></div>
+            <div><span>1995</span></div>
+            <div><span>1994</span></div>
+            <div><span>1993</span></div>
+            <div><span>1992</span></div>
+            <div><span>1991</span></div>
+            <div><span>1990</span></div>
+            <div><span>1989</span></div>
+            <div><span>1988</span></div>
+            <div><span>1987</span></div>
+            <div><span>1986</span></div>
+            <div><span>1985</span></div>
+            <div><span>1984</span></div>
+            <div><span>1983</span></div>
+            <div><span>1982</span></div>
+            <div><span>1981</span></div>
+            <div><span>1980</span></div>
+            <div><span>1979</span></div>
+            <div><span>1978</span></div>
+            <div><span>1977</span></div>
+            <div><span>1976</span></div>
+          </div>
+          <div class="button-wrapper">
+            <button>ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const day_input = document.getElementById("day-input");
+    const month_input = document.getElementById("month-input");
+    const year_input = document.getElementById("year-input");
+    const day_list = document.getElementsByClassName("day-wrapper")[0].children;
+    const month_list = document.getElementsByClassName("month-wrapper")[0]
+      .children;
+    const year_list = document.getElementsByClassName("year-wrapper")[0]
+      .children;
+    var prev_day = 0;
+    var prev_month = 0;
+    var prev_year = 0;
+    //day
+    for (i = 0; i < day_list.length; i++) {
+      day = day_list[i];
+      day_block = day.firstChild;
+      day_block.classList.add("noselect");
+      day_block.addEventListener("click", function(e) {
+        console.log(e.target);
+        if (prev_day != 0) {
+          prev_day.style.backgroundColor = " transparent";
+          prev_day.style.color = "rgb(44, 44, 44)";
+        }
+        current = e.target;
+        current.style.backgroundColor = "blue";
+        current.style.color = "white";
+
+        day_input.value = current.innerHTML;
+        prev_day = current;
+      });
+    }
+    ///month
+
+    for (i = 0; i < month_list.length; i++) {
+      month = month_list[i];
+      month.addEventListener("click", function(e) {
+        console.log(e.target);
+        if (prev_month != 0) {
+          prev_month.style.backgroundColor = "rgb(202, 206, 255)";
+          prev_month.style.color = "rgb(36, 49, 238)";
+        }
+        current_month = e.target;
+        current_month.style.backgroundColor = "blue";
+        current_month.style.color = "white";
+
+        month_input.value = current_month.innerHTML;
+        prev_month = current_month;
+      });
+    }
+
+    //year
+
+    for (i = 0; i < year_list.length; i++) {
+      year = year_list[i];
+      year.firstChild.addEventListener("click", function(e) {
+        console.log(e.target);
+        if (prev_year != 0) {
+          prev_year.style.backgroundColor = " transparent";
+          prev_year.style.color = "rgb(44, 44, 44)";
+        }
+        current_year = e.target;
+        current_year.style.backgroundColor = "blue";
+        current_year.style.color = "white";
+
+        year_input.value = current_year.innerHTML;
+        prev_year = current_year;
+      });
+    }
+    //year_smooth_scroll
+    const year_scroller = document.getElementsByClassName("year-wrapper")[0];
+    function year_smooth_scroll(startPosition, targetPosition, duration) {
+      //   target = document.querySelector(target);
+      //   targetPosition = target.getBoundingClientRect().top;
+      //  startPosition = window.pageYOffset;
+      distance = targetPosition - startPosition;
+      startTime = null;
+      function animation(currentTime) {
+        if (startTime === null) {
+          startTime = currentTime;
+        }
+
+        timeElapsed = currentTime - startTime;
+        run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        console.log(run);
+        year_scroller.scrollTo(0, run);
+        // window.scrollTo({ top: distance, left: 0, behavior: "smooth" });
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+        // startTime = null;
+      }
+      //
+      function easeInOutCubic(t, b, c, d) {
+        // console.log(t, b, c, d);
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t * t + b;
+        t -= 2;
+        return (c / 2) * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+    //year_smooth_scroll
+
+    //nav-year
+    document.getElementById("up-year").addEventListener("click", function() {
+      current_year_scroll = year_scroller.getBoundingClientRect();
+      console.log(current_year_scroll);
+      //  year_smooth_scroll(current_year_scroll, current_year_scroll + 135, 350);
+    });
+  </script>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap"
+      rel="stylesheet"
+    />
+    <link />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+      .insta-header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0px;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+      }
+      .insta-header div:nth-child(1) {
+        font-size: 47px;
+        padding: 15px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .insta-header div:nth-child(2) {
+        font-size: 35px;
+        padding: 15px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .info-banner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+      }
+      .info-banner-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 34px;
+        height: 110px;
+        text-align: center;
+      }
+
+      .card-show {
+        font-family: Montserrat, sans-serif;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 16px;
+        height: 160px;
+      }
+      .card-show > div {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-title {
+        padding: 10px 40px;
+        display: flex;
+        justify-content: center;
+      }
+      .card-body {
+        padding: 18px;
+        color: rgb(93, 93, 93);
+        text-align: center;
+      }
+      @media (max-width: 480px) {
+        .insta-header div:nth-child(1) {
+          font-size: 40px;
+        }
+        .insta-header div:nth-child(2) {
+          font-size: 25px;
+        }
+        .card-show {
+          display: grid;
+          grid-template-rows: repeat(3, 1fr);
+          grid-template-columns: 1fr;
+          height: 350px;
+        }
+        .info-banner-title {
+          font-size: 30px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="insta-header">
+      <div>SHOP OUR INSTAGRAM</div>
+      <div>@slaughterandfoxofficial</div>
+    </div>
+    <div class="info-banner">
+      <div class="info-banner-title">Shop with peace of mind</div>
+      <div class="card-show">
+        <div>
+          <div class="card-title">
+            <img
+              src="https://img.icons8.com/material/32/000000/airplane-mode-on.png"
+            />
+          </div>
+          <div class="card-body">
+            we help project or set up a manufacturing facility.
+          </div>
+        </div>
+        <div>
+          <div class="card-title">
+            <img src="https://img.icons8.com/ios-glyphs/32/000000/undo.png" />
+          </div>
+          <div class="card-body">
+            Less than 5 out of
+          </div>
+        </div>
+        <div>
+          <div class="card-title">
+            <img
+              src="https://img.icons8.com/material/32/000000/security-checked.png"
+            />
+          </div>
+          <div class="card-body">
+            Our consultants are
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
